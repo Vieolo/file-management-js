@@ -1,0 +1,19 @@
+{
+  "name": "@vieolo/file-management",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vieolo/file-management-js.git"
+  },
+  "author": "Vieolo",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Vieolo/file-management-js/issues"
+  },
+  "homepage": "https://github.com/Vieolo/file-management-js#readme"
+}
