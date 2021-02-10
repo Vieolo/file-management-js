@@ -30,3 +30,14 @@ export async function fileToBase64(file: File): Promise<string> {
 		reader.readAsDataURL(file)
 	})
 }
+
+
+/**
+ * Converts base64 file to blob
+ * @param file The base64 file
+ * @param contentType The content type of the file. Defaults to: image/jpeg
+ */
+export async function base64ToBlob(file: string, contentType?: string): Promise<Blob> {
+	let fetchResponse = await fetch(`data:${contentType || 'image/jpeg'};base64,` + file)
+    return await fetchResponse.blob();
+}
