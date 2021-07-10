@@ -41,3 +41,22 @@ export async function base64ToBlob(file: string, contentType?: string): Promise<
 	let fetchResponse = await fetch(`data:${contentType || 'image/jpeg'};base64,` + file)
     return await fetchResponse.blob();
 }
+
+
+/**
+ * Converts the uploaded file object to Array Buffer
+ * @param file The JS file object
+ */
+export async function fileToArrayBuffer(file: File): Promise<ArrayBuffer> {
+	
+	if ('arrayBuffer' in file) return await file.arrayBuffer();
+
+	return new Promise<ArrayBuffer>((resolve, reject) => {
+		const reader = new FileReader();
+
+		reader.onload = () => resolve(reader.result as ArrayBuffer);
+		reader.onerror = () => reject;
+		reader.readAsArrayBuffer(file)
+	})
+}
+

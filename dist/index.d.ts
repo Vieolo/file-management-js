@@ -14,3 +14,8 @@ export declare function fileToBase64(file: File): Promise<string>;
  * @param contentType The content type of the file. Defaults to: image/jpeg
  */
 export declare function base64ToBlob(file: string, contentType?: string): Promise<Blob>;
+/**
+ * Converts the uploaded file object to Array Buffer
+ * @param file The JS file object
+ */
+export declare function fileToArrayBuffer(file: File): Promise<ArrayBuffer>;
