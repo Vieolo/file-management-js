@@ -2,7 +2,7 @@
  * Fetches a file from the given url and converts it to base64
  * @param url The url of the file
  */
-export async function remoteFileToBase64(url: string): Promise<string> {
+ export async function remoteFileToBase64(url: string): Promise<string> {
 	let rr = await fetch(url)
 	let blob: Blob = await rr.blob();
 

@@ -1,10 +1,11 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/Vieolo/file-management-js/issues"
   },
-  "homepage": "https://github.com/Vieolo/file-management-js#readme"
+  "homepage": "https://github.com/Vieolo/file-management-js#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7"
+  },
+  "dependencies": {
+    "jszip": "^3.7.1"
+  }
 }
