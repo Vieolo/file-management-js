@@ -8,3 +8,7 @@ export {
 export {
 	downloadBlob
 } from './download/download';
+
+export {
+	generateBlob
+} from './generators/generators';
