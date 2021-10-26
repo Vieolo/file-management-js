@@ -4,3 +4,7 @@ export {
 	fileToBase64,
 	remoteFileToBase64
 } from './convertors/convertors';
+
+export {
+	downloadBlob
+} from './download/download';
