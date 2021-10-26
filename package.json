@@ -17,10 +17,13 @@
   },
   "homepage": "https://github.com/Vieolo/file-management-js#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.14.5",
-    "@types/jest": "^26.0.23",
-    "babel-jest": "^27.0.2",
-    "jest": "^27.0.4",
-    "ts-jest": "^27.0.3"
+    "@babel/preset-env": "^7.15.8",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7"
+  },
+  "dependencies": {
+    "jszip": "^3.7.1"
   }
 }
