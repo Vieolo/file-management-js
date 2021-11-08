@@ -12,3 +12,9 @@ export {
 export {
 	generateBlob
 } from './generators/generators';
+
+
+export {
+	pdfMerge,
+	pdfSplit
+} from './pdf/pdf_modification';
