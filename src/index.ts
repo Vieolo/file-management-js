@@ -18,3 +18,8 @@ export {
 	pdfMerge,
 	pdfSplit
 } from './pdf/pdf_modification';
+
+
+import { SimplifiedMIMEType as SimplifiedMIMETypeTemp } from './generators/generators';
+
+export type SimplifiedMIMEType = SimplifiedMIMETypeTemp;
