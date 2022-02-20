@@ -2,3 +2,7 @@ export { base64ToBlob, fileToArrayBuffer, fileToBase64, remoteFileToBase64 } fro
 export { downloadBlob } from './download/download';
 export { generateBlob } from './generators/generators';
 export { pdfMerge, pdfSplit } from './pdf/pdf_modification';
+import { SimplifiedMIMEType as SimplifiedMIMETypeTemp } from './generators/generators';
+import { BlobInfo as BlobInfoTemp } from './download/download';
+export declare type SimplifiedMIMEType = SimplifiedMIMETypeTemp;
+export declare type BlobInfo = BlobInfoTemp;

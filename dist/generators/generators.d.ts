@@ -1,4 +1,4 @@
-declare type SimplifiedMIMEType = 'XML-Download' | 'XML-Read' | 'Excel' | 'PDF' | 'JSON' | 'CSV';
+export declare type SimplifiedMIMEType = 'XML-Download' | 'XML-Read' | 'Excel' | 'PDF' | 'JSON' | 'CSV';
 /**
  * Generates a blob object with the appropriate MIME type
  * @param content The contents of the blob file
@@ -6,4 +6,3 @@ declare type SimplifiedMIMEType = 'XML-Download' | 'XML-Read' | 'Excel' | 'PDF' 
  * @returns The new generated Blob object
  */
 export declare function generateBlob(content: BlobPart[], type: SimplifiedMIMEType): Blob;
-export {};
