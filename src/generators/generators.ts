@@ -1,4 +1,4 @@
-type SimplifiedMIMEType = 'XML-Download' | 'XML-Read' | 'Excel' | 'PDF' | 'JSON' | 'CSV';
+export type SimplifiedMIMEType = 'XML-Download' | 'XML-Read' | 'Excel' | 'PDF' | 'JSON' | 'CSV';
 
 /**
  * Generates a blob object with the appropriate MIME type
