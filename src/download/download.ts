@@ -1,6 +1,12 @@
 // Installed Packages
 import JSZip from 'jszip';
 
+
+export type BlobInfo = {
+    blob: Blob,
+    blobName: string
+}
+
 /**
  * Receives a blob and downloads it via the clinet's browser.
  * @param blob The blob to be downloaded
@@ -12,8 +18,8 @@ export async function downloadBlob(blob: Blob, fileName: string) : Promise<void>
  * @param blob The list of blobs and the name of each
  * @param fileName The name of the ZIP file
  */
-export async function downloadBlob(blob: {blob: Blob, blobName: string}[], fileName: string) : Promise<void>;
-export async function downloadBlob(blob: Blob | {blob: Blob, blobName: string}[], fileName: string) : Promise<void> {
+export async function downloadBlob(blob: BlobInfo[], fileName: string) : Promise<void>;
+export async function downloadBlob(blob: Blob | BlobInfo[], fileName: string) : Promise<void> {
     let finalBlob: Blob;
 
     if (Array.isArray(blob)) {
