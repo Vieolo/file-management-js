@@ -2,10 +2,15 @@
 import JSZip from 'jszip';
 export async function downloadBlob(blob, fileName) {
     let finalBlob;
+    let finalFileName = fileName;
     if (Array.isArray(blob)) {
         // Does not download anything if the list of blobs are empty
         if (blob.length === 0)
             return;
+        // Adjusting the final file name
+        if (!finalFileName.endsWith(".zip")) {
+            finalFileName += ".zip";
+        }
         // Creating the ZIP file
         let zip = new JSZip();
         for (let i = 0; i < blob.length; i++) {
@@ -22,14 +27,14 @@ export async function downloadBlob(blob, fileName) {
     }
     // Downloading the blob
     if (window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(finalBlob, fileName);
+        window.navigator.msSaveOrOpenBlob(finalBlob, finalFileName);
     }
     else {
         const a = document.createElement('a');
         document.body.appendChild(a);
         const url = window.URL.createObjectURL(finalBlob);
         a.href = url;
-        a.download = fileName;
+        a.download = finalFileName;
         a.click();
         setTimeout(() => {
             window.URL.revokeObjectURL(url);
