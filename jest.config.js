@@ -4,6 +4,10 @@ module.exports = {
 	testEnvironment: 'node',
 	collectCoverage: true,
 	coverageDirectory: 'coverage',
+	setupFilesAfterEnv: ['<rootDir>/setupTest.js'],
+	transform: {
+		"\\.jsx?$": "babel-jest"
+	},
 	testPathIgnorePatterns: [
 		"/node_modules"
 	],

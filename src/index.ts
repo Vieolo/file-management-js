@@ -3,23 +3,25 @@ export {
 	fileToArrayBuffer,
 	fileToBase64,
 	remoteFileToBase64
-} from './convertors/convertors';
+} from './convertors/index';
 
 export {
 	downloadBlob
-} from './download/download';
+} from './download/index';
 
 export {
 	generateBlob
-} from './generators/generators';
-
+} from './generators/index';
 
 export {
 	pdfMerge,
 	pdfSplit
-} from './pdf/pdf_modification';
+} from './pdf/index';
 
-
+export {
+	csvFileToArray,
+	csvFileToObject
+} from './csv/index';
 // Types
 import { SimplifiedMIMEType as SimplifiedMIMETypeTemp } from './generators/generators';
 import { BlobInfo as BlobInfoTemp } from './download/download';
