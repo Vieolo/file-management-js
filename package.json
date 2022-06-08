@@ -32,5 +32,23 @@
     "jszip": "^3.7.1",
     "papaparse": "^5.3.0",
     "pdf-lib": "^1.17.1"
+  },  
+  "exports": {
+    ".": "./dist/index.js",
+    "./downlod": "./dist/download/index.js",
+    "./pdf": "./dist/pdf/index.js",
+    "./csv": "./dist/csv/index.js",
+    "./covertors": "./dist/convertors/index.js",
+    "./generators": "./dist/generators/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["dist/index.d.ts"],
+      "download": ["dist/download/index.d.ts"],
+      "pdf": ["dist/pdf/index.d.ts"],
+      "csv": ["dist/csv/index.d.ts"],
+      "convertors": ["dist/convertors/index.d.ts"],
+      "generators": ["dist/generators/index.d.ts"]
+    }
   }
 }
