@@ -23,11 +23,11 @@ import {
 import {
 	pdfMerge,
 	pdfSplit
-} from '@vieolo-file-management/pdf';
+} from '@vieolo/file-management/pdf';
 import {
 	csvFileToArray,
 	csvFileToObject
-} from '@vieolo-file-management/csv';
+} from '@vieolo/file-management/csv';
 import {
 	base64ToBlob,
 	fileToArrayBuffer,
