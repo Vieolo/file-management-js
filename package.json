@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -33,7 +33,6 @@
     "papaparse": "^5.3.0",
     "pdf-lib": "^1.17.1"
   },
-  "type": "module",
   "exports": {
     "./package.json": "./package.json",
     ".": "./dist/index.js",

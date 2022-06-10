@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.5 (2022-06-10)
+- Added CSV files management
+- Improved the individual imports
+
 ## 0.2.4 (2022-02-24)
 - Added ".zip" suffix to the zip files even if absent in the file name ([#6](https://github.com/Vieolo/file-management-js/issues/6))
 
