@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -36,12 +36,20 @@
   "exports": {
     "./package.json": "./package.json",
     ".": "./dist/index.js",
-    "./*": ["./dist/*/index.js", "./dist/*.js"]
+    "./*": [
+      "./dist/*/index.js",
+      "./dist/*.js"
+    ]
   },
   "typesVersions": {
     "*": {
-      ".": ["dist/index.d.ts"],
-      "*": ["dist/*/index.d.ts", "dist/*.d.ts"]
+      ".": [
+        "dist/index.d.ts"
+      ],
+      "*": [
+        "dist/*/index.d.ts",
+        "dist/*.d.ts"
+      ]
     }
   }
 }
