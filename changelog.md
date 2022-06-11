@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.6 (2022-06-11)
+- Adjusted the exports
+
 ## 0.2.5 (2022-06-10)
 - Added CSV files management
 - Improved the individual imports
