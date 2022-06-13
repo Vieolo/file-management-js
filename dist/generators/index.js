@@ -1,1 +1,0 @@
-export { generateBlob } from './generators';
