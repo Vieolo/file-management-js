@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.7 (2022-06-13)
+- Adjusted the exports
+
 ## 0.2.6 (2022-06-11)
 - Adjusted the exports
 
