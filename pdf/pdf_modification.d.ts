@@ -1,9 +1,13 @@
+export declare function convertImageToPDF(files: File[], scale: number): Promise<Blob>;
 /**
  * Merge multiple PDF files into one
  * @param files The array of files
  * @returns The merged PDF file in blob format
  */
-export declare function pdfMerge(files: File[]): Promise<Blob>;
+export declare function pdfMerge(files: File[], convertNonPDFFiles?: {
+    /** Min: 0.0, Max: 1.0 */
+    scale: number;
+}): Promise<Blob>;
 /**
  * Splits the given PDF files into individual files, each containing only 1 page
  * @param files The PDF files

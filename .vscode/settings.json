@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "pdf": true,
+        "convertors": true,
+        "csv": true,
+        "download": true,
+        "generators": true
+    }   
+}
