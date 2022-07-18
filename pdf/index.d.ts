@@ -1,1 +1,1 @@
-export { pdfMerge, pdfSplit } from './pdf_modification';
+export { pdfMerge, pdfSplit, convertImageToPDF } from './pdf_modification';

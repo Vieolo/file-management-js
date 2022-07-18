@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.8 (2022-07-19)
+- Added image to PDF convertion function
+
 ## 0.2.7 (2022-06-13)
 - Adjusted the exports
 
