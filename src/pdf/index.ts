@@ -1,4 +1,5 @@
 export {
   pdfMerge,
-  pdfSplit
+  pdfSplit,
+  convertImageToPDF
 } from './pdf_modification';

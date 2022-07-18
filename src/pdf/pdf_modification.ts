@@ -5,19 +5,55 @@ import { generateBlob } from '../generators/generators';
 // Installed Packages
 import { PDFDocument } from "pdf-lib";
 
+// converting the jpg to pdf
+export async function convertImageToPDF(files: File[], scale: number) {
+
+    const pdfDoc = await PDFDocument.create()
+    
+    for (let imgFile of files) {
+         
+        // Embed the image bytes
+        const img = await pdfDoc.embedJpg(await fileToArrayBuffer(imgFile))
+           
+        const imgDims = img.scale(scale)
+        
+        // Add a blank page to the document
+        const page = pdfDoc.addPage()
+        
+        // Draw the JPG image in the center of the page
+        page.drawImage(img, {
+            x: page.getWidth() / 2 - imgDims.width / 2,
+            y: page.getHeight() / 2 - imgDims.height / 2,
+            width: imgDims.width,
+            height: imgDims.height,
+        })        
+    }
+    return generateBlob([await pdfDoc.save()], 'PDF')
+}
+
 /**
  * Merge multiple PDF files into one
  * @param files The array of files
  * @returns The merged PDF file in blob format
  */
-export async function pdfMerge(files: File[]): Promise<Blob> {
+export async function pdfMerge(files: File[], convertNonPDFFiles?: {
+    /** Min: 0.0, Max: 1.0 */
+    scale: number
+}): Promise<Blob> {
     // Creating an empty document for the merged file
     const mergedPdf = await PDFDocument.create();
 
     for (let f of files) {
+        let fi: File;
+        if (f.type !== 'application/pdf' && convertNonPDFFiles) {
+            fi = new File([await convertImageToPDF([f], convertNonPDFFiles.scale)], f.name)
+        } else {
+            fi = f
+        }
+        
         // Loading the file
         let document: PDFDocument = await PDFDocument.load(
-            await fileToArrayBuffer(f)
+            await fileToArrayBuffer(fi)
         );
 
         // The merged file has to copy the pages of the file
