@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.10 (2022-08-15)
+- Fixed the fonts of the `PDFGen`
+
 ## 0.2.9 (2022-08-15)
 - Added `PDFGen` class to generate PDF documents
 - Dependencies are now imported dynamically
