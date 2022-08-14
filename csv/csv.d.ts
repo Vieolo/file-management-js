@@ -1,6 +1,17 @@
-import * as Papa from "papaparse";
-declare type CSVParseMeta = Papa.ParseMeta;
-declare type CSVParseError = Papa.ParseError;
+declare type CSVParseMeta = {
+    delimiter: string;
+    linebreak: string;
+    aborted: boolean;
+    fields?: string[];
+    truncated: boolean;
+    cursor: number;
+};
+declare type CSVParseError = {
+    type: string;
+    code: string;
+    message: string;
+    row: number;
+};
 /**
  * Converts a CSV file to an array of array of strings
  * @param file The uploaded file selected by the user in the browser

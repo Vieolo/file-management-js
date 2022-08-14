@@ -1,10 +1,9 @@
 // Internal
 import { fileToArrayBuffer } from '../convertors/convertors';
 import { generateBlob } from '../generators/generators';
-// Installed Packages
-import { PDFDocument } from "pdf-lib";
 // converting the jpg to pdf
 export async function convertImageToPDF(files, scale) {
+    const { PDFDocument } = await import("pdf-lib");
     const pdfDoc = await PDFDocument.create();
     for (let imgFile of files) {
         // Embed the image bytes
@@ -29,6 +28,7 @@ export async function convertImageToPDF(files, scale) {
  */
 export async function pdfMerge(files, convertNonPDFFiles) {
     // Creating an empty document for the merged file
+    const { PDFDocument } = await import("pdf-lib");
     const mergedPdf = await PDFDocument.create();
     for (let f of files) {
         let fi;
@@ -54,6 +54,7 @@ export async function pdfMerge(files, convertNonPDFFiles) {
  * @returns An array containing the separated PDF pages
  */
 export async function pdfSplit(files) {
+    const { PDFDocument } = await import("pdf-lib");
     let documents = [];
     // Loading each file and add it to the `documents` array
     for (let i = 0; i < files.length; i++) {

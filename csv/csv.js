@@ -1,10 +1,10 @@
-import * as Papa from "papaparse";
 /**
  * Converts a CSV file to an array of array of strings
  * @param file The uploaded file selected by the user in the browser
  * @returns parsed data, meta, and error (if any)
  */
 export async function csvFileToArray(file) {
+    const Papa = await import("papaparse");
     return new Promise((resolve, reject) => {
         Papa.parse(file, {
             trimHeaders: true,
@@ -28,6 +28,7 @@ export async function csvFileToArray(file) {
  * @returns parsed data, meta, and error (if any)
  */
 export async function csvFileToObject(file) {
+    const Papa = await import("papaparse");
     return new Promise((resolve, reject) => {
         Papa.parse(file, {
             trimHeaders: true,

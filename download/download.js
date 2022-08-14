@@ -1,5 +1,3 @@
-// Installed Packages
-import JSZip from 'jszip';
 export async function downloadBlob(blob, fileName) {
     let finalBlob;
     let finalFileName = fileName;
@@ -12,6 +10,7 @@ export async function downloadBlob(blob, fileName) {
             finalFileName += ".zip";
         }
         // Creating the ZIP file
+        const { default: JSZip } = await import('jszip');
         let zip = new JSZip();
         for (let i = 0; i < blob.length; i++) {
             const b = blob[i];
