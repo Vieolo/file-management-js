@@ -70,15 +70,20 @@ export class PDFGenTable implements IPDFGenElement {
     }) { }
 
     getObject() {
+        let t: import('pdfmake/interfaces').Table = {
+            body: this.data.body.map(z => {
+                return z.map(x => typeof x === 'string' ? x : x.getObject())
+            }),
+        }
+
+        if (this.data.dontBreakRows) t.dontBreakRows = this.data.dontBreakRows
+        if (this.data.headerRows) t.headerRows = this.data.headerRows
+        if (this.data.heights) t.heights = this.data.heights
+        if (this.data.keepWithHeaderRows) t.keepWithHeaderRows = this.data.keepWithHeaderRows
+        if (this.data.widths) t.widths = this.data.widths
+
         return {
-            table: {
-                body: this.data.body,
-                dontBreakRows: this.data.dontBreakRows,
-                headerRows: this.data.headerRows,
-                heights: this.data.heights,
-                keepWithHeaderRows: this.data.keepWithHeaderRows,
-                widths: this.data.widths
-            },
+            table: t,
             ...(this.data.style || {})
         } as import('pdfmake/interfaces').ContentTable
     }
@@ -163,22 +168,25 @@ export default class PDFGen {
             return typeof res === 'string' ? res : res.getObject()
         }
 
-        return {
+        let dd: import('pdfmake/interfaces').TDocumentDefinitions = {
             content: this.content.map(z => {
                 return typeof z === 'string' ? z : z.getObject()
-            }),
-            background: this.data.background,
-            defaultStyle: this.data.defaultStyle,
-            footer: (c, pc, ps) => getHF(c, pc, ps, this.data.footer),
-            header: (c, pc, ps) => getHF(c, pc, ps, this.data.header),
-            images: this.data.images,
-            info: this.data.metaData,
-            pageMargins: this.data.pageMargins,
-            pageSize: this.data.pageSize,
-            styles: this.data.styles,
-            watermark: this.data.watermark,
-            pageOrientation: this.data.pageOrientation,        
+            })
         }
+
+        if (this.data.background) dd.background = this.data.background
+        if (this.data.defaultStyle) dd.defaultStyle = this.data.defaultStyle
+        if (this.data.footer) dd.footer = (c, pc, ps) => getHF(c, pc, ps, this.data.footer)
+        if (this.data.header) dd.header = (c, pc, ps) => getHF(c, pc, ps, this.data.header)
+        if (this.data.images) dd.images = this.data.images
+        if (this.data.metaData) dd.info = this.data.metaData
+        if (this.data.pageMargins) dd.pageMargins = this.data.pageMargins
+        if (this.data.pageSize) dd.pageSize = this.data.pageSize
+        if (this.data.styles) dd.styles = this.data.styles
+        if (this.data.watermark) dd.watermark = this.data.watermark
+        if (this.data.pageOrientation) dd.pageOrientation = this.data.pageOrientation
+
+        return dd;
     }  
 
     async createPDF() {
