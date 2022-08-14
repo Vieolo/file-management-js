@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.9 (2022-08-15)
+- Added `PDFGen` class to generate PDF documents
+- Dependencies are now imported dynamically
+
 ## 0.2.8 (2022-07-19)
 - Added image to PDF convertion function
 

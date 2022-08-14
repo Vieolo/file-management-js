@@ -1,9 +1,13 @@
 export { base64ToBlob, fileToArrayBuffer, fileToBase64, remoteFileToBase64 } from './convertors/index';
 export { downloadBlob } from './download/index';
 export { generateBlob } from './generators/index';
-export { pdfMerge, pdfSplit, convertImageToPDF } from './pdf/index';
+export { pdfMerge, pdfSplit, convertImageToPDF, PDFGen, PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine } from './pdf/index';
 export { csvFileToArray, csvFileToObject } from './csv/index';
 import { SimplifiedMIMEType as SimplifiedMIMETypeTemp } from './generators/generators';
 import { BlobInfo as BlobInfoTemp } from './download/download';
+import { PDFGenColumnsCol as PDFGenColumnsColTemp, PDFGenDocumentHeaderAndFooter as PDFGenDocumentHeaderAndFooterTemp, PDFGenTableLayout as PDFGenTableLayoutTemp } from './pdf/index';
 export declare type SimplifiedMIMEType = SimplifiedMIMETypeTemp;
 export declare type BlobInfo = BlobInfoTemp;
+export declare type PDFGenColumnsCol = PDFGenColumnsColTemp;
+export declare type PDFGenDocumentHeaderAndFooter = PDFGenDocumentHeaderAndFooterTemp;
+export declare type PDFGenTableLayout = PDFGenTableLayoutTemp;
