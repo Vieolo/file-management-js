@@ -1,7 +1,3 @@
-// Installed Packages
-import JSZip from 'jszip';
-
-
 export type BlobInfo = {
     blob: Blob,
     blobName: string
@@ -12,16 +8,16 @@ export type BlobInfo = {
  * @param blob The blob to be downloaded
  * @param fileName The name of the file to be downloaded
  */
-export async function downloadBlob(blob: Blob, fileName: string) : Promise<void>;
+export async function downloadBlob(blob: Blob, fileName: string): Promise<void>;
 /**
  * Receives multiple blobs and download them inside a ZIP file.
  * @param blob The list of blobs and the name of each
  * @param fileName The name of the ZIP file
  */
-export async function downloadBlob(blob: BlobInfo[], fileName: string) : Promise<void>;
-export async function downloadBlob(blob: Blob | BlobInfo[], fileName: string) : Promise<void> {
+export async function downloadBlob(blob: BlobInfo[], fileName: string): Promise<void>;
+export async function downloadBlob(blob: Blob | BlobInfo[], fileName: string): Promise<void> {
     let finalBlob: Blob;
-    let finalFileName = fileName;    
+    let finalFileName = fileName;
 
     if (Array.isArray(blob)) {
         // Does not download anything if the list of blobs are empty
@@ -31,12 +27,13 @@ export async function downloadBlob(blob: Blob | BlobInfo[], fileName: string) : 
         if (!finalFileName.endsWith(".zip")) {
             finalFileName += ".zip";
         }
-        
+
         // Creating the ZIP file
+        const { default: JSZip } = await import('jszip');
         let zip = new JSZip();
-        
+
         for (let i = 0; i < blob.length; i++) {
-            const b = blob[i];            
+            const b = blob[i];
             zip.file(
                 b.blobName,
                 b.blob,
@@ -48,7 +45,7 @@ export async function downloadBlob(blob: Blob | BlobInfo[], fileName: string) : 
 
         // Generating the blob of the ZIP file
         finalBlob = await zip.generateAsync({ type: "blob" });
-    }else {
+    } else {
         finalBlob = blob;
     }
 
