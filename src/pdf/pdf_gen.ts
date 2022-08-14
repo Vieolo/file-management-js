@@ -139,12 +139,12 @@ export default class PDFGen {
         pageMargins?: import('pdfmake/interfaces').Margins,
         pageSize?: import('pdfmake/interfaces').PageSize,
         watermark?: import('pdfmake/interfaces').Watermark | string,
-        font?: {
+        fonts?: {[name: string]: {            
             normal?: string;    
             bold?: string,    
             italics?: string,    
             bolditalics?: string
-        }
+        }}
 
         // The properties that haven't been added
         // pageBreakBefore
@@ -180,4 +180,23 @@ export default class PDFGen {
             pageOrientation: this.data.pageOrientation,        
         }
     }  
+
+    async createPDF() {
+        let pdfmake = await import('pdfmake/build/pdfmake');
+        if (this.data.fonts) pdfmake.fonts = this.data.fonts
+        return pdfmake.createPdf(this.makeDocument());
+    }
+
+    async downloadPDF(fileName: string) {
+        let doc = await this.createPDF()
+        doc.download(`${fileName}.pdf`);
+    }
+    
+    
+    async getBase64(): Promise<string> {
+        let doc = await this.createPDF()
+        return new Promise(resolve => {
+            doc.getBase64((data: string) => resolve(data));
+        });
+    }
 }
