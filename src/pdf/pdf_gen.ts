@@ -125,6 +125,31 @@ export class PDFGenStack implements IPDFGenElement {
     };
 }
 
+export class PDFGenLine implements IPDFGenElement {
+    constructor(public data: {
+        /** (default: 0) */
+        x1?: number,
+        /** (default: 520) */
+        x2?: number,
+        /** (default: 4) */
+        y1?: number,
+        /** (default: 4) */
+        y2?: number,
+        /** (default: 1) */
+        thickness?: number
+    }) {}
+    getObject() {
+        return {
+            canvas: [{
+                type: 'line',
+                x1: this.data.x1 || 0, y1: this.data.y1 || 4,
+                x2: this.data.x2 || 520, y2: this.data.y2 || 4,
+                lineWidth: this.data.thickness || 1
+            }]
+        } as import('pdfmake/interfaces').ContentCanvas
+    }
+}
+
 
 
 

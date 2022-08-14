@@ -23,7 +23,8 @@ export {
 	PDFGenImage,
 	PDFGenStack,
 	PDFGenTable,
-	PDFGenText
+	PDFGenText,
+	PDFGenLine
 } from './pdf/index';
 
 export {
