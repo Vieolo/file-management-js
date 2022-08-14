@@ -2,12 +2,10 @@
 import { fileToArrayBuffer } from '../convertors/convertors';
 import { generateBlob } from '../generators/generators';
 
-// Installed Packages
-import { PDFDocument } from "pdf-lib";
 
 // converting the jpg to pdf
 export async function convertImageToPDF(files: File[], scale: number) {
-
+    const { PDFDocument } = await import("pdf-lib");
     const pdfDoc = await PDFDocument.create()
     
     for (let imgFile of files) {
@@ -41,6 +39,7 @@ export async function pdfMerge(files: File[], convertNonPDFFiles?: {
     scale: number
 }): Promise<Blob> {
     // Creating an empty document for the merged file
+    const { PDFDocument } = await import("pdf-lib");
     const mergedPdf = await PDFDocument.create();
 
     for (let f of files) {
@@ -52,7 +51,7 @@ export async function pdfMerge(files: File[], convertNonPDFFiles?: {
         }
         
         // Loading the file
-        let document: PDFDocument = await PDFDocument.load(
+        let document = await PDFDocument.load(
             await fileToArrayBuffer(fi)
         );
 
@@ -76,8 +75,9 @@ export async function pdfMerge(files: File[], convertNonPDFFiles?: {
  * @param files The PDF files
  * @returns An array containing the separated PDF pages
  */
-export async function pdfSplit(files: File[]) : Promise<Blob[]> {        
-    let documents: PDFDocument[] = [];
+export async function pdfSplit(files: File[]) : Promise<Blob[]> {       
+    const { PDFDocument } = await import("pdf-lib"); 
+    let documents = [];
 
     // Loading each file and add it to the `documents` array
     for (let i = 0; i < files.length; i++) {
@@ -96,7 +96,7 @@ export async function pdfSplit(files: File[]) : Promise<Blob[]> {
         // Looping through the pages of the PDF file
         for (let z = 0; z < doc.getPageCount(); z++) {
             // Creating a document for the single page document
-            const singleDoc: PDFDocument = await PDFDocument.create();
+            const singleDoc = await PDFDocument.create();
             
             // The single page has to be copied by the singleDoc to be able to be added as a page
             let copiedPages = await singleDoc.copyPages(
