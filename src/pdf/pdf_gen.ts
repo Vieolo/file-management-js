@@ -15,7 +15,7 @@ export class PDFGenEmptySpace implements IPDFGenElement {
 }
 
 export class PDFGenText implements IPDFGenElement {
-    constructor(public data: import('pdfmake/interfaces').ContentBase & {text: string}) { }
+    constructor(public data: import('pdfmake/interfaces').ContentBase & { text: string }) { }
 
     getObject() {
         return this.data
@@ -25,9 +25,9 @@ export class PDFGenText implements IPDFGenElement {
 export class PDFGenImage implements IPDFGenElement {
     constructor(public data: import('pdfmake/interfaces').ContentBase & {
         image: string,
-        width?: number,    
+        width?: number,
         height?: number,
-        fit?: [number, number],    
+        fit?: [number, number],
         cover?: import('pdfmake/interfaces').ImageCover,
     }) { }
 
@@ -42,7 +42,7 @@ export type PDFGenTableLayout = 'noBorders' | 'headerLineOnly' | 'lightHorizonta
     hLineColor?: (i: number, node: import('pdfmake/interfaces').ContentTable) => string,
     vLineColor?: (i: number, node: import('pdfmake/interfaces').ContentTable) => string
     hLineStyle?: (i: number, node: import('pdfmake/interfaces').ContentTable) => { dash: import('pdfmake/interfaces').Dash },
-    vLineStyle?: (i: number, node: import('pdfmake/interfaces').ContentTable) => { dash: import('pdfmake/interfaces').Dash },    
+    vLineStyle?: (i: number, node: import('pdfmake/interfaces').ContentTable) => { dash: import('pdfmake/interfaces').Dash },
     paddingLeft?: (i: number, node: import('pdfmake/interfaces').ContentTable) => number,
     paddingRight?: (i: number, node: import('pdfmake/interfaces').ContentTable) => number,
     paddingTop?: (i: number, node: import('pdfmake/interfaces').ContentTable) => number,
@@ -96,7 +96,7 @@ export type PDFGenColumnsCol = {
 }
 
 export class PDFGenColumns implements IPDFGenElement {
-    constructor(public data: import('pdfmake/interfaces').ContentBase & {columns: PDFGenColumnsCol[]}) { }
+    constructor(public data: import('pdfmake/interfaces').ContentBase & { columns: PDFGenColumnsCol[] }) { }
 
     getObject() {
         return {
@@ -113,7 +113,7 @@ export class PDFGenColumns implements IPDFGenElement {
 
 
 export class PDFGenStack implements IPDFGenElement {
-    constructor(public data: import('pdfmake/interfaces').ContentBase & {stack: PDFGenElement[]}) { }
+    constructor(public data: import('pdfmake/interfaces').ContentBase & { stack: PDFGenElement[] }) { }
 
     getObject() {
         return {
@@ -137,7 +137,7 @@ export class PDFGenLine implements IPDFGenElement {
         y2?: number,
         /** (default: 1) */
         thickness?: number
-    }) {}
+    }) { }
     getObject() {
         return {
             canvas: [{
@@ -169,12 +169,14 @@ export default class PDFGen {
         pageMargins?: import('pdfmake/interfaces').Margins,
         pageSize?: import('pdfmake/interfaces').PageSize,
         watermark?: import('pdfmake/interfaces').Watermark | string,
-        fonts?: {[name: string]: {            
-            normal?: string;    
-            bold?: string,    
-            italics?: string,    
-            bolditalics?: string
-        }}
+        fonts?: {
+            [name: string]: {
+                normal?: string;
+                bold?: string,
+                italics?: string,
+                bolditalics?: string
+            }
+        }
 
         // The properties that haven't been added
         // pageBreakBefore
@@ -183,10 +185,10 @@ export default class PDFGen {
         // permissions
     }) { }
 
-    makeDocument() : import('pdfmake/interfaces').TDocumentDefinitions {        
-        function getHF(currentPage: number, pageCount: number, pageSize: import('pdfmake/interfaces').ContextPageSize, target?: PDFGenDocumentHeaderAndFooter, ) {
+    makeDocument(): import('pdfmake/interfaces').TDocumentDefinitions {
+        function getHF(currentPage: number, pageCount: number, pageSize: import('pdfmake/interfaces').ContextPageSize, target?: PDFGenDocumentHeaderAndFooter,) {
             if (!target) return undefined;
-            
+
             let t: PDFGenDocumentHeaderAndFooter = target;
             let res = t(currentPage, pageCount, pageSize)
             if (!res) return res
@@ -212,20 +214,27 @@ export default class PDFGen {
         if (this.data.pageOrientation) dd.pageOrientation = this.data.pageOrientation
 
         return dd;
-    }  
+    }
 
     async createPDF() {
         let pdfmake = await import('pdfmake/build/pdfmake');
-        if (this.data.fonts) pdfmake.fonts = this.data.fonts
-        return pdfmake.createPdf(this.makeDocument());
+        let fonts = this.data.fonts || {
+            Roboto: {
+                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
+                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
+                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
+                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
+            },
+        }
+        return pdfmake.createPdf(this.makeDocument(), undefined, fonts);
     }
 
     async downloadPDF(fileName: string) {
         let doc = await this.createPDF()
         doc.download(`${fileName}.pdf`);
     }
-    
-    
+
+
     async getBase64(): Promise<string> {
         let doc = await this.createPDF()
         return new Promise(resolve => {

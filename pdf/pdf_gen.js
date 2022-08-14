@@ -141,9 +141,15 @@ export default class PDFGen {
     }
     async createPDF() {
         let pdfmake = await import('pdfmake/build/pdfmake');
-        if (this.data.fonts)
-            pdfmake.fonts = this.data.fonts;
-        return pdfmake.createPdf(this.makeDocument());
+        let fonts = this.data.fonts || {
+            Roboto: {
+                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
+                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
+                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
+                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
+            },
+        };
+        return pdfmake.createPdf(this.makeDocument(), undefined, fonts);
     }
     async downloadPDF(fileName) {
         let doc = await this.createPDF();
