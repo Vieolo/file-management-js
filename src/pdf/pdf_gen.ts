@@ -233,7 +233,9 @@ export default class PDFGen {
 
     async downloadPDF(fileName: string) {
         let doc = await this.createPDF()
-        doc.download(`${fileName}.pdf`);
+        let fn = fileName
+        if (!fn.toLowerCase().endsWith(".pdf")) fn += ".pdf"
+        doc.download(fn);
     }
 
 
