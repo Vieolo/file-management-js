@@ -9,13 +9,15 @@ import Page from '@vieolo/vieolo-ui/dist/Page';
 
 // Local UI
 import PDFPage from '../pdf/pdf';
+import ExcelPage from '../excel/excel';
 
 
 export default function HomePage(props: {}) {
     let [right, setRight] = useState<string>("")
 
     let pages: { [key: string]: any } = {
-        "pdf": <PDFPage />
+        "pdf": <PDFPage />,
+        "excel": <ExcelPage />,
     }
 
     return <Page>
@@ -29,6 +31,12 @@ export default function HomePage(props: {}) {
                             title: "PDF",
                             selected: false,
                             onClick: () => setRight("pdf")
+                        },
+                        {
+                            id: "excel",
+                            title: "Excel",
+                            selected: false,
+                            onClick: () => setRight("excel")
                         }
                     ]}
                 />
