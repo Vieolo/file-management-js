@@ -22,7 +22,8 @@
     "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e-server": "BROWSER=none react-app-rewired -r @cypress/instrument-cra start"
   },
   "eslintConfig": {
     "extends": [
@@ -44,7 +45,13 @@
   },
   "devDependencies": {
     "customize-cra": "^1.0.0",
+    "cypress": "^10.6.0",
     "react-app-rewire-typescript": "^2.0.2",
-    "react-app-rewired": "^2.2.1"
+    "react-app-rewired": "^2.2.1",
+    "@cypress/code-coverage": "^3.10.0",
+    "@cypress/instrument-cra": "^1.4.0",
+    "@cypress/react18": "^1.0.1",
+    "@cypress/webpack-dev-server": "^1.8.1",
+    "nyc": "^15.1.0"
   }
 }
