@@ -4,12 +4,13 @@
 __pycache__/
 .idea/
 .cache/
+.nyc_output/
 venv/
 node_modules/
 migrations/
 coverage/
 htmlcov/
-
+local/cypress/downloads/
 
 # Logs and databases #
 ######################

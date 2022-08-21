@@ -7,7 +7,6 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.48",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vieolo/vieolo-ui": "github:Vieolo/vieolo-ui#0.23.4",
@@ -44,14 +43,15 @@
     ]
   },
   "devDependencies": {
-    "customize-cra": "^1.0.0",
-    "cypress": "^10.6.0",
-    "react-app-rewire-typescript": "^2.0.2",
-    "react-app-rewired": "^2.2.1",
     "@cypress/code-coverage": "^3.10.0",
     "@cypress/instrument-cra": "^1.4.0",
     "@cypress/react18": "^1.0.1",
     "@cypress/webpack-dev-server": "^1.8.1",
-    "nyc": "^15.1.0"
+    "@types/node": "^18.7.8",
+    "customize-cra": "^1.0.0",
+    "cypress": "^10.6.0",
+    "nyc": "^15.1.0",
+    "react-app-rewire-typescript": "^2.0.2",
+    "react-app-rewired": "^2.2.1"
   }
 }
