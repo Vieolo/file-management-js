@@ -67,7 +67,7 @@
 	  "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
 	},
 	"files": [
-		"./src/index.ts"
+		"./src/export.ts"
 	],
 	"exclude": [
 		"*.test.ts",
