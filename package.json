@@ -22,6 +22,7 @@
       "!src/dev_app/",
       "!src/export.ts",
       "!src/index.tsx",
+      "!src/**/index.ts",
       "!src/**/*.d.{ts,tsx}",
       "!src/reportWebVitals.ts",
       "!src/setupTests.ts"
@@ -34,7 +35,13 @@
     ]
   },
   "nyc": {
-    "report-dir": "cypress-coverage"
+    "report-dir": "cypress-coverage",
+    "exclude": [
+      "src/dev_app/",
+      "src/index.tsx",
+      "src/**/index.ts",
+      "src/reportWebVitals.ts"
+    ]
   },
   "repository": {
     "type": "git",

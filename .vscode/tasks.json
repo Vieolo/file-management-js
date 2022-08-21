@@ -67,6 +67,22 @@
             "presentation": {
                 "panel": "dedicated"
             }
-        }
+        },
+        {
+            "label": "Frontend Coverage -- view",
+            "type": "shell",
+            "command": "",
+            "detail": "",
+            "problemMatcher": [],
+            "presentation": {
+                "close": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "osx": {
+                "command": "node ./mergeCoverage.mjs && open frontend-coverage/index.html"
+            }
+        },
     ]
 }

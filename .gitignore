@@ -9,7 +9,8 @@ venv/
 node_modules/
 migrations/
 coverage/
-cypress_coverage/
+cypress-coverage/
+frontend-coverage/
 htmlcov/
 cypress/downloads/
 
