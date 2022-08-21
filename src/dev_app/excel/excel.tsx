@@ -2,7 +2,7 @@
 import React from 'react';
 
 // File Management
-import ExcelGen from '../../../src/excel/excel_gen'
+import ExcelGen, { ExcelCommonStyle } from '../../../src/excel/excel_gen'
 
 export default function ExcelPage(props: {}) {
     return <div>
@@ -21,9 +21,14 @@ async function generateExcel() {
     excel.worksheets = [
         {
             name: "First Sheet",
-            columns: [],
+            columns: [
+                {},
+                { width: 60 }
+            ],
             rows: [
-                {data: [{value: "Something"}]}
+                { data: [{ value: "Something" }, { value: 123 }, { value: 2500, style: { numFmt: ExcelCommonStyle.EURO_NUM_FMT } }] },
+                { data: ["zz", "aa", "ss", "cc"].map(z => {return {value: z}}), style: { fill: ExcelCommonStyle.cellSolidFill("#dddddd") } },
+                { data: [{ value: "xx", style: { fill: ExcelCommonStyle.cellSolidFill("#dddddd") } }] }
             ]
         }
     ]

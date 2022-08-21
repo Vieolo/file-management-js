@@ -2,26 +2,26 @@
 import { downloadBlob } from '../download/download'
 
 // Installed Packages
-import type { Style, BorderStyle, Column } from 'exceljs'
+import type { Style, BorderStyle, Column, Fill } from 'exceljs'
 
 
 // Cell Types
 export type ExcelCellStyle = Style
-export type ExcelCellValue = string | { formula: string }
+export type ExcelCellValue = string | number | { formula: string }
 export type ExcelCell = {
     value: ExcelCellValue,
-    style?: Style
+    style?: Partial<Style>
 }
 
 // Row Types
 export type ExcelRow = {
-    style?: Style,
+    style?: Partial<Style>,
     height?: number,
     data: ExcelCell[]
 }
 
 // Column Types
-export type ExcelColumn = Column
+export type ExcelColumn = Partial<Column>
 
 // Worksheet types
 export type ExcelWorksheet = {
@@ -43,7 +43,7 @@ export class ExcelCommonStyle {
      * Generates a common solid background color for the excel cell
      * @param color Either in `#f2f2f2` or `FFf2f2f2` format. Do not shorten the hex color like `#ddd`
      */
-    static cellSolidFill(color: string) {
+    static cellSolidFill(color: string) : Fill {
         let c = color;
         if (c[0] === "#") c = c.replace("#", "FF")
         return {
@@ -105,6 +105,13 @@ export default class ExcelGen {
             for (let i = 0; i < ws.rows.length; i++) {
                 const row: ExcelRow = ws.rows[i];
                 valueRows.push(row.data.map(z => z.value))
+            }
+
+            worksheet.addRows(valueRows)
+
+            for (let i = 0; i < ws.rows.length; i++) {
+                const row: ExcelRow = ws.rows[i];
+                valueRows.push(row.data.map(z => z.value))
                 
                 if (row.style) {
                     let wr = worksheet.getRow(i + 1);
@@ -127,8 +134,6 @@ export default class ExcelGen {
                     c.style = style
                 }
             }
-
-            worksheet.addRows(valueRows)
 
         })
 
