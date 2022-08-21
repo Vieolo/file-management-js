@@ -1,1 +1,12 @@
-local/
+cypress/
+src/
+public/
+test/
+.vscode/
+coverage/
+babel.config.js
+cypress.config.ts
+jest.config.js
+setupTest.js
+version_bump.mjs
+tsconfig.json
