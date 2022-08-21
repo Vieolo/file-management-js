@@ -1,2 +1,2 @@
-import "./excel.cy";
-import "./pdf.cy";
+import "./specs/excel.cy";
+import "./specs/pdf.cy";
