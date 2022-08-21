@@ -1,6 +1,7 @@
+import { csvFileToArray, csvFileToObject } from '../csv/csv';
+
 jest.useFakeTimers();
 
-import { csvFileToArray, csvFileToObject } from "../src/csv/csv";
 
 describe("index", () => {
     test("converts CSV file to array of array of string", async () => {

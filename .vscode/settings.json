@@ -4,6 +4,7 @@
         "convertors": true,
         "csv": true,
         "download": true,
-        "generators": true
+        "generators": true,
+        "excel": true
     }   
 }
