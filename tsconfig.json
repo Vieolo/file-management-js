@@ -1,42 +1,47 @@
 {
-	"compilerOptions": {
-		"target": "es2020",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noFallthroughCasesInSwitch": true,
-		"module": "es2020",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx",
-		"types": [ "cypress", "node"]
-	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"node_modules",
-		"**/*.test.ts",
-		"**/*.test.tsx",
-		"**/*.stories.tsx",
-		"./src/setupTests.ts",
-		"./src/App.tsx",
-		"./src/index.tsx",
-		"./src/reportWebVitals.ts",
-		"./src/dev_app",
-		"version_bump.mjs"
-	],
-	"files": [
-		"./src/export.ts"
-	]
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "outDir": ".",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "types": [
+      "cypress",
+      "node"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.tsx",
+    "./src/setupTests.ts",
+    "./src/App.tsx",
+    "./src/index.tsx",
+    "./src/reportWebVitals.ts",
+    "./src/dev_app",
+    "version_bump.mjs"
+  ],
+  "files": [
+    "./src/export.ts"
+  ]
 }
