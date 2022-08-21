@@ -10,7 +10,7 @@ node_modules/
 migrations/
 coverage/
 htmlcov/
-local/cypress/downloads/
+cypress/downloads/
 
 # Logs and databases #
 ######################

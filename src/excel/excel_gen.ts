@@ -90,7 +90,7 @@ export default class ExcelGen {
         workbook.calcProperties.fullCalcOnLoad = this.data.fullCalcOnLoad;
 
         // Creating the worksheets (Each sheet of the file)
-        this.worksheets.map(ws => {
+        this.worksheets.forEach(ws => {
             let worksheet = workbook.addWorksheet(ws.name, {
                 properties: {
                     defaultColWidth: ws.defaultColWidth,

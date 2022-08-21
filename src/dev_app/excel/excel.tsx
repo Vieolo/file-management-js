@@ -1,17 +1,12 @@
-// Vieolo UI
-import Button from '@vieolo/vieolo-ui/dist/Button';
+// React
+import React from 'react';
 
 // File Management
 import ExcelGen from '../../../src/excel/excel_gen'
 
 export default function ExcelPage(props: {}) {
     return <div>
-        <Button 
-            color='primary'
-            emphasis='low-normal'
-            text='Generate Excel'
-            onClick={() => generateExcel()}
-        />
+        <button onClick={() => generateExcel()}>Generate Excel</button>
     </div>
 }
 

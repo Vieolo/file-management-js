@@ -1,8 +1,8 @@
-// Vieolo UI
-import Button from '@vieolo/vieolo-ui/dist/Button'
+// React
+import React from 'react'
 
 // File Management
-import PDFGen from '../../../src/pdf/pdf_gen'
+import PDFGen from '../../pdf/pdf_gen'
 
 export default function PDFPage(props: {}) {
 
@@ -25,11 +25,6 @@ export default function PDFPage(props: {}) {
       }
 
     return <div>
-        <Button 
-            text='Generate PDF'
-            color='primary'
-            emphasis='low-normal'
-            onClick={handleGeneratePDF}
-        />
+        <button onClick={handleGeneratePDF}>Generate PDF</button>
     </div>
 }

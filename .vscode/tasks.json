@@ -46,7 +46,7 @@
             ],
             "group": "test",
             "options": {
-                "cwd": "${workspaceFolder}/local"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "panel": "dedicated"
@@ -62,7 +62,7 @@
             ],
             "group": "test",
             "options": {
-                "cwd": "${workspaceFolder}/local"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "panel": "dedicated"

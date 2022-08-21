@@ -9,7 +9,6 @@ export type PDFGenDocumentHeaderAndFooter = (currentPage: number, pageCount: num
 
 
 export class PDFGenEmptySpace implements IPDFGenElement {
-    constructor() { }
 
     getObject() {
         return " "

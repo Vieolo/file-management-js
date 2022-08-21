@@ -4,7 +4,7 @@ public/
 test/
 .vscode/
 coverage/
-babel.config.js
+.babelrc
 cypress.config.ts
 jest.config.js
 setupTest.js
