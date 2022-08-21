@@ -82,7 +82,7 @@ fs.writeFileSync('./changelog.md', changeLogLines.join('\n'));
 console.log(`Transpiling the package`);
 
 try {
-    execSync('npm run build');   
+    execSync('npm run build-components');   
     console.log(`Version ${fv} is ready to be published`);
     console.log(`---------------------------------------`);
 } catch (error) {
