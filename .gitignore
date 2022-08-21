@@ -4,12 +4,16 @@
 __pycache__/
 .idea/
 .cache/
+.nyc_output/
 venv/
 node_modules/
 migrations/
 coverage/
+cypress-coverage/
+frontend-coverage/
 htmlcov/
-
+cypress/downloads/
+cypress/videos/
 
 # Logs and databases #
 ######################

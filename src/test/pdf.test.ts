@@ -1,8 +1,8 @@
-import { PDFGen, PDFGenColumns, PDFGenText, PDFGenEmptySpace, PDFGenStack, PDFGenTable, PDFGenImage } from '../src/pdf'
+import { PDFGen, PDFGenColumns, PDFGenText, PDFGenEmptySpace, PDFGenStack, PDFGenTable, PDFGenImage } from '../pdf'
 
 describe("PDF", () => {
 
-    it("It generates the PDF document definition correctly 1", async () => {
+    it("generates the PDF document definition correctly 1", async () => {
 
         let expected = {
             pageOrientation: 'portrait',

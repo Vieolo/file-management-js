@@ -27,5 +27,62 @@
                 "cwd": "${workspaceFolder}"
             }
         },
+        {
+            "label": "End 2 End Test",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Frontend Test Server",
+                "Cypress Test Server"
+            ],
+            "problemMatcher": []
+        },     
+        {
+            "label": "Frontend Test Server",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "e2e-server"
+            ],
+            "group": "test",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Cypress Test Server",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "cypress",
+                "open"
+            ],
+            "group": "test",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Frontend Coverage -- view",
+            "type": "shell",
+            "command": "",
+            "detail": "",
+            "problemMatcher": [],
+            "presentation": {
+                "close": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "osx": {
+                "command": "node ./mergeCoverage.mjs && open frontend-coverage/index.html"
+            }
+        },
     ]
 }

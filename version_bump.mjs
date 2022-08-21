@@ -78,11 +78,14 @@ fs.writeFileSync('./changelog.md', changeLogLines.join('\n'));
 // Creating a build ************
 
 // Setting the tsconfig's noEmit to false
+let tsConfig = JSON.parse(fs.readFileSync('./tsconfig.json').toString());
+tsConfig.compilerOptions.noEmit = false;
+fs.writeFileSync('./tsconfig.json', JSON.stringify(tsConfig, null, 2));
 
 console.log(`Transpiling the package`);
 
 try {
-    execSync('npm run build');   
+    execSync('npm run build-components');   
     console.log(`Version ${fv} is ready to be published`);
     console.log(`---------------------------------------`);
 } catch (error) {
@@ -90,7 +93,8 @@ try {
     console.log(`---------------------------------------`);
 }
 
-
+tsConfig.compilerOptions.noEmit = true;
+fs.writeFileSync('./tsconfig.json', JSON.stringify(tsConfig, null, 2));
 
 /**
  * @returns {string}
