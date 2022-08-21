@@ -5,12 +5,36 @@
   "main": "export.js",
   "private": true,
   "scripts": {
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!(date_utility|country_data|react_validation|@vieolo|onetruck-pdf-processing|d3*|internmap|robust-predicates))\" --env=jsdom --runInBand",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!(date_utility|country_data|react_validation|@vieolo|d3*|internmap|robust-predicates))\" --env=jsdom --runInBand",
+    "test-coverage": "npm run test -- --coverage --watchAll=false",
     "start": "react-scripts start",
     "build": "react-scripts build",    
     "eject": "react-scripts eject",
     "e2e-server": "BROWSER=none react-scripts -r @cypress/instrument-cra start",
     "build-components": "tsc"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@vieolo))"
+    ],   
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/dev_app/",
+      "!src/export.ts",
+      "!src/index.tsx",
+      "!src/**/*.d.{ts,tsx}",
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html",
+      "json"
+    ]
+  },
+  "nyc": {
+    "report-dir": "cypress-coverage"
   },
   "repository": {
     "type": "git",
