@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "",
   "main": "export.js",
   "private": true,
@@ -8,7 +8,7 @@
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!(date_utility|country_data|react_validation|@vieolo|d3*|internmap|robust-predicates))\" --env=jsdom --runInBand",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
     "start": "react-scripts start",
-    "build": "react-scripts build",    
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "e2e-server": "BROWSER=none react-scripts -r @cypress/instrument-cra start",
     "e2e": "npm run e2e-server",
@@ -18,7 +18,7 @@
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!(@vieolo))"
-    ],   
+    ],
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/dev_app/",
@@ -72,7 +72,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {    
+  "devDependencies": {
     "@types/papaparse": "^5.2.5",
     "@types/pdfmake": "^0.2.1",
     "@testing-library/jest-dom": "^5.16.5",

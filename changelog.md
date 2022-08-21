@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.11 (2022-08-22)
+- Added `ExcelGen` class to generate Excel files
+
 ## 0.2.10 (2022-08-15)
 - Fixed the fonts of the `PDFGen`
 
