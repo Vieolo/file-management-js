@@ -44,10 +44,10 @@ export async function base64ToBlob(file: string, contentType?: string): Promise<
 
 
 /**
- * Converts the uploaded file object to Array Buffer
- * @param file The JS file object
+ * Converts the uploaded file/blob object to Array Buffer
+ * @param file The JS file/blob object
  */
-export async function fileToArrayBuffer(file: File): Promise<ArrayBuffer> {
+export async function fileToArrayBuffer(file: Blob): Promise<ArrayBuffer> {
 	
 	if ('arrayBuffer' in file) return await file.arrayBuffer();
 

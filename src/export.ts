@@ -13,6 +13,11 @@ import {
     ExcelColumn as ExcelColumnTemp,
     ExcelRow as ExcelRowTemp,
     ExcelWorksheet as ExcelWorksheetTemp,    
+	ParsedExcelCellType as ParsedExcelCellTypeTemp,
+    ParsedExcelCellValueType as ParsedExcelCellValueTypeTemp,
+    ParsedExcelDocType as ParsedExcelDocTypeTemp,
+    ParsedExcelRowType as ParsedExcelRowTypeTemp,
+    ParsedExcelWorksheetType as ParsedExcelWorksheetTypeTemp
 } from "./excel";
 
 export type SimplifiedMIMEType = SimplifiedMIMETypeTemp;
@@ -29,6 +34,12 @@ export type ExcelCellValue = ExcelCellValueTemp
 export type ExcelColumn = ExcelColumnTemp
 export type ExcelRow = ExcelRowTemp
 export type ExcelWorksheet = ExcelWorksheetTemp
+
+export type ParsedExcelCellType = ParsedExcelCellTypeTemp
+export type ParsedExcelCellValueType = ParsedExcelCellValueTypeTemp
+export type ParsedExcelDocType = ParsedExcelDocTypeTemp
+export type ParsedExcelRowType = ParsedExcelRowTypeTemp
+export type ParsedExcelWorksheetType = ParsedExcelWorksheetTypeTemp
 
 
 export {
@@ -67,5 +78,6 @@ export {
 
 export {
 	ExcelGen,
-	ExcelCommonStyle
+	ExcelCommonStyle,
+	readExcelContent
 } from './excel'

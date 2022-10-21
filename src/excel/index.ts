@@ -8,9 +8,19 @@ import ExcelGen, {
     ExcelCommonStyle
 } from "./excel_gen";
 
+import {
+    readExcelContent,
+    ParsedExcelCellType as ParsedExcelCellTypeTemp,
+    ParsedExcelCellValueType as ParsedExcelCellValueTypeTemp,
+    ParsedExcelDocType as ParsedExcelDocTypeTemp,
+    ParsedExcelRowType as ParsedExcelRowTypeTemp,
+    ParsedExcelWorksheetType as ParsedExcelWorksheetTypeTemp
+} from './excel_read';
+
 export {
     ExcelGen,
-    ExcelCommonStyle
+    ExcelCommonStyle,
+    readExcelContent
 }
 
 export type ExcelCell = ExcelCellTemp
@@ -19,3 +29,9 @@ export type ExcelCellValue = ExcelCellValueTemp
 export type ExcelColumn = ExcelColumnTemp
 export type ExcelRow = ExcelRowTemp
 export type ExcelWorksheet = ExcelWorksheetTemp
+
+export type ParsedExcelCellType = ParsedExcelCellTypeTemp
+export type ParsedExcelCellValueType = ParsedExcelCellValueTypeTemp
+export type ParsedExcelDocType = ParsedExcelDocTypeTemp
+export type ParsedExcelRowType = ParsedExcelRowTypeTemp
+export type ParsedExcelWorksheetType = ParsedExcelWorksheetTypeTemp
