@@ -19,7 +19,7 @@ async function readLocalFile(filePath: string | string[], mimeType: 'Excel' | 'P
 
 describe("Read Excel Files", () => {
 
-    it.only("Reads the Excel file 1 correctly", async () => {
+    it("Reads the Excel file 1 correctly", async () => {
         let sample = (await readLocalFile("excel/sample_excel_1.xlsx", 'Excel'))[0]
 
         let expected = {
