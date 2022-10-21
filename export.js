@@ -3,4 +3,4 @@ export { downloadBlob } from './download/index';
 export { generateBlob } from './generators/index';
 export { pdfMerge, pdfSplit, convertImageToPDF, PDFGen, PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine } from './pdf/index';
 export { csvFileToArray, csvFileToObject } from './csv/index';
-export { ExcelGen, ExcelCommonStyle } from './excel';
+export { ExcelGen, ExcelCommonStyle, readExcelContent } from './excel';

@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.12 (2022-10-21)
+- Added ability to read Excel files
+
 ## 0.2.11 (2022-08-22)
 - Added `ExcelGen` class to generate Excel files
 

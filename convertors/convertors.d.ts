@@ -15,7 +15,7 @@ export declare function fileToBase64(file: File): Promise<string>;
  */
 export declare function base64ToBlob(file: string, contentType?: string): Promise<Blob>;
 /**
- * Converts the uploaded file object to Array Buffer
- * @param file The JS file object
+ * Converts the uploaded file/blob object to Array Buffer
+ * @param file The JS file/blob object
  */
-export declare function fileToArrayBuffer(file: File): Promise<ArrayBuffer>;
+export declare function fileToArrayBuffer(file: Blob): Promise<ArrayBuffer>;
