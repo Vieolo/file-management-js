@@ -1,5 +1,3 @@
-// File Management
-import { downloadBlob } from '../download/download';
 /**
  * A class containing many static functions that return common styles for cells
  */
@@ -92,7 +90,8 @@ export default class ExcelGen {
         let n = fileName;
         if (!n.toLowerCase().endsWith(".xlsx"))
             n += ".xlsx";
-        downloadBlob(blob, n);
+        let db = (await import("../download/download")).downloadBlob;
+        db(blob, n);
     }
 }
 ExcelGen.colIndex = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];

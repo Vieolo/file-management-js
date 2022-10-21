@@ -1,8 +1,14 @@
 import ExcelGen, { ExcelCell as ExcelCellTemp, ExcelCellStyle as ExcelCellStyleTemp, ExcelCellValue as ExcelCellValueTemp, ExcelColumn as ExcelColumnTemp, ExcelRow as ExcelRowTemp, ExcelWorksheet as ExcelWorksheetTemp, ExcelCommonStyle } from "./excel_gen";
-export { ExcelGen, ExcelCommonStyle };
+import { readExcelContent, ParsedExcelCellType as ParsedExcelCellTypeTemp, ParsedExcelCellValueType as ParsedExcelCellValueTypeTemp, ParsedExcelDocType as ParsedExcelDocTypeTemp, ParsedExcelRowType as ParsedExcelRowTypeTemp, ParsedExcelWorksheetType as ParsedExcelWorksheetTypeTemp } from './excel_read';
+export { ExcelGen, ExcelCommonStyle, readExcelContent };
 export declare type ExcelCell = ExcelCellTemp;
 export declare type ExcelCellStyle = ExcelCellStyleTemp;
 export declare type ExcelCellValue = ExcelCellValueTemp;
 export declare type ExcelColumn = ExcelColumnTemp;
 export declare type ExcelRow = ExcelRowTemp;
 export declare type ExcelWorksheet = ExcelWorksheetTemp;
+export declare type ParsedExcelCellType = ParsedExcelCellTypeTemp;
+export declare type ParsedExcelCellValueType = ParsedExcelCellValueTypeTemp;
+export declare type ParsedExcelDocType = ParsedExcelDocTypeTemp;
+export declare type ParsedExcelRowType = ParsedExcelRowTypeTemp;
+export declare type ParsedExcelWorksheetType = ParsedExcelWorksheetTypeTemp;

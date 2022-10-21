@@ -34,8 +34,8 @@ export async function base64ToBlob(file, contentType) {
     return await fetchResponse.blob();
 }
 /**
- * Converts the uploaded file object to Array Buffer
- * @param file The JS file object
+ * Converts the uploaded file/blob object to Array Buffer
+ * @param file The JS file/blob object
  */
 export async function fileToArrayBuffer(file) {
     if ('arrayBuffer' in file)

@@ -1,2 +1,3 @@
 import ExcelGen, { ExcelCommonStyle } from "./excel_gen";
-export { ExcelGen, ExcelCommonStyle };
+import { readExcelContent } from './excel_read';
+export { ExcelGen, ExcelCommonStyle, readExcelContent };
