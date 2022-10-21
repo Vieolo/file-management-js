@@ -1,6 +1,3 @@
-// File Management
-import { downloadBlob } from '../download/download'
-
 // Installed Packages
 import type { Style, BorderStyle, Column, Fill } from 'exceljs'
 
@@ -149,7 +146,8 @@ export default class ExcelGen {
         let blob = await this.getBlob()
         let n = fileName
         if (!n.toLowerCase().endsWith(".xlsx")) n += ".xlsx"
-        downloadBlob(blob, n)
+        let db = (await import("../download/download")).downloadBlob;
+        db(blob, n)
     }
 }
 
