@@ -80,7 +80,7 @@ function getCellActualValue(value: CellValue) : ParsedExcelCellValueType {
  * This function reads and parse the contents of an excel file
  * @param file The Blob/File of the excel files 
  */
-export async function read(file: Blob) : Promise<ParsedExcelDocType> {
+export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType> {
     let result: ParsedExcelDocType = {workSheets: []}
 
     // Importing the `exceljs` package and necessary functions
