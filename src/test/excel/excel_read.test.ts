@@ -2182,7 +2182,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2314,7 +2320,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2446,7 +2458,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2578,7 +2596,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2710,7 +2734,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2842,7 +2872,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -2974,7 +3010,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3106,7 +3148,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3238,7 +3286,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3370,7 +3424,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3502,7 +3562,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3634,7 +3700,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -3883,7 +3955,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4015,7 +4093,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4147,7 +4231,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4279,7 +4369,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4411,7 +4507,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4543,7 +4645,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4675,7 +4783,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -4807,7 +4921,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5056,7 +5176,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5188,7 +5314,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5320,7 +5452,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5452,7 +5590,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5584,7 +5728,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5716,7 +5866,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5848,7 +6004,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -5980,7 +6142,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -6112,7 +6280,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -6244,7 +6418,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -6376,7 +6556,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,
@@ -6508,7 +6694,13 @@ describe("Read Excel Files", () => {
                         "value": {
                             "value": "2022-10-24T00:00:00.000Z",
                             "type": "date",
-                            "stringRepresentation": "2022-10-24T00:00:00.000Z"
+                            "stringRepresentation": "2022-10-24T00:00:00.000Z",
+                            "date": "2022-10-24",
+                            "time": {
+                                "hour": 0,
+                                "minute": 0,
+                                "second": 0
+                            }
                         }
                     }, {
                         "columnNumber": 2,

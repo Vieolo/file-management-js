@@ -7,6 +7,8 @@ export type ParsedExcelCellValueType = {
     stringRepresentation: string,
     /** Used in the case of hyperlink */
     text?: string,
+    /** The date, in YYYY-MM-DD format. Helps to use the date without needing to worry about the timezone */
+    date?: string,
     /** The values of the time */
     time?: {
         hour: number,
@@ -72,17 +74,19 @@ function getCellActualValue(value: CellValue) : ParsedExcelCellValueType {
     else {
         // If the cell is a date
         if (value instanceof Date) {
+            let s = value.toISOString().split("T")[1].split(".")[0];
+            let t = {hour: +s.split(":")[0], minute: +s.split(":")[1], second: +s.split(":")[2]}
+            
             // If the day of the date is `1899-12-30`, then the value is actually time rather than the whole date
             if (value.getUTCFullYear() === 1899 && value.getUTCMonth() === 11 && value.getUTCDate() === 30) {
-                let s = value.toISOString().split("T")[1].split(".")[0];
                 return {
                     value: s, 
                     type: 'time', 
                     stringRepresentation: value.toISOString(),
-                    time: {hour: +s.split(":")[0], minute: +s.split(":")[1], second: +s.split(":")[2]}
+                    time: t
                 }    
             }
-            return {value: (value as Date).toISOString(), type: 'date', stringRepresentation: value.toISOString()}
+            return {value: (value as Date).toISOString(), type: 'date', stringRepresentation: value.toISOString(), date: value.toISOString().split("T")[0], time: t}
         }
 
         // If the value is not of basic types and date, it is an object
