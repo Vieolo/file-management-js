@@ -1,22 +1,33 @@
-import type { ContentBase, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark } from 'pdfmake/interfaces';
+import type { ContentBase, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark, TableCellProperties } from 'pdfmake/interfaces';
 interface IPDFGenElement {
     getObject: () => Content;
 }
-declare type PDFGenElement = IPDFGenElement | string;
+export declare type PDFGenElement = IPDFGenElement | string;
 export declare type PDFGenDocumentHeaderAndFooter = (currentPage: number, pageCount: number, pageSize: ContextPageSize) => PDFGenElement | null | undefined;
 export declare class PDFGenEmptySpace implements IPDFGenElement {
     getObject(): string;
 }
 export declare class PDFGenText implements IPDFGenElement {
-    data: ContentBase & {
+    data: (ContentBase & {
         text: string;
-    };
-    constructor(data: ContentBase & {
+    }) | string;
+    constructor(data: (ContentBase & {
         text: string;
-    });
+    }) | string);
     getObject(): ContentBase & {
         text: string;
     };
+}
+export declare class PDFGenTableCell implements IPDFGenElement {
+    data: {
+        element: PDFGenElement;
+        cellProperties?: TableCellProperties;
+    };
+    constructor(data: {
+        element: PDFGenElement;
+        cellProperties?: TableCellProperties;
+    });
+    getObject(): any;
 }
 export declare class PDFGenImage implements IPDFGenElement {
     data: ContentBase & {

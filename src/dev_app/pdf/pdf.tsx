@@ -2,7 +2,7 @@
 import React from 'react'
 
 // File Management
-import PDFGen from '../../pdf/pdf_gen'
+import PDFGen, { PDFGenTable, PDFGenTableCell, PDFGenText } from '../../pdf/pdf_gen'
 
 export default function PDFPage(props: {}) {
 
@@ -20,7 +20,18 @@ export default function PDFPage(props: {}) {
             font: "Barlow"
           }
         })
-        pdf.content = ["PDF File"]
+        pdf.content = [
+          "PDF File",
+          new PDFGenTable({
+            widths: ["*", "*"],
+            body: [
+              [new PDFGenTableCell({element: "Text", cellProperties: {colSpan: 2}}), " "],
+              [new PDFGenTableCell({element: new PDFGenText("Something"), cellProperties: {rowSpan: 2}}), " "],
+              [" ", " "],
+              [new PDFGenTableCell({element: new PDFGenText({text: "Something else"})}), ""],
+            ]
+          })
+        ]
         await pdf.downloadPDF("ss")
       }
 

@@ -9,7 +9,16 @@ export class PDFGenText {
         this.data = data;
     }
     getObject() {
-        return this.data;
+        return typeof this.data === 'string' ? { text: this.data } : this.data;
+    }
+    ;
+}
+export class PDFGenTableCell {
+    constructor(data) {
+        this.data = data;
+    }
+    getObject() {
+        return { ...(typeof this.data.element === 'string' ? { text: this.data.element } : this.data.element.getObject()), ...(this.data.cellProperties || {}) };
     }
     ;
 }

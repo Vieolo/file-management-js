@@ -1,23 +1,24 @@
 // Types
 import { SimplifiedMIMEType as SimplifiedMIMETypeTemp } from './generators/generators';
 import { BlobInfo as BlobInfoTemp } from './download/download';
-import { 
-	PDFGenColumnsCol as PDFGenColumnsColTemp, 
+import {
+	PDFGenColumnsCol as PDFGenColumnsColTemp,
 	PDFGenDocumentHeaderAndFooter as PDFGenDocumentHeaderAndFooterTemp,
-	PDFGenTableLayout as PDFGenTableLayoutTemp
+	PDFGenTableLayout as PDFGenTableLayoutTemp,
+	PDFGenElement as PDFGenElementTemp,
 } from './pdf/index';
-import { 
-    ExcelCell as ExcelCellTemp,
-    ExcelCellStyle as ExcelCellStyleTemp,
-    ExcelCellValue as ExcelCellValueTemp,
-    ExcelColumn as ExcelColumnTemp,
-    ExcelRow as ExcelRowTemp,
-    ExcelWorksheet as ExcelWorksheetTemp,    
+import {
+	ExcelCell as ExcelCellTemp,
+	ExcelCellStyle as ExcelCellStyleTemp,
+	ExcelCellValue as ExcelCellValueTemp,
+	ExcelColumn as ExcelColumnTemp,
+	ExcelRow as ExcelRowTemp,
+	ExcelWorksheet as ExcelWorksheetTemp,
 	ParsedExcelCellType as ParsedExcelCellTypeTemp,
-    ParsedExcelCellValueType as ParsedExcelCellValueTypeTemp,
-    ParsedExcelDocType as ParsedExcelDocTypeTemp,
-    ParsedExcelRowType as ParsedExcelRowTypeTemp,
-    ParsedExcelWorksheetType as ParsedExcelWorksheetTypeTemp
+	ParsedExcelCellValueType as ParsedExcelCellValueTypeTemp,
+	ParsedExcelDocType as ParsedExcelDocTypeTemp,
+	ParsedExcelRowType as ParsedExcelRowTypeTemp,
+	ParsedExcelWorksheetType as ParsedExcelWorksheetTypeTemp
 } from "./excel";
 
 export type SimplifiedMIMEType = SimplifiedMIMETypeTemp;
@@ -27,6 +28,7 @@ export type BlobInfo = BlobInfoTemp;
 export type PDFGenColumnsCol = PDFGenColumnsColTemp;
 export type PDFGenDocumentHeaderAndFooter = PDFGenDocumentHeaderAndFooterTemp;
 export type PDFGenTableLayout = PDFGenTableLayoutTemp;
+export type PDFGenElement = PDFGenElementTemp;
 
 export type ExcelCell = ExcelCellTemp
 export type ExcelCellStyle = ExcelCellStyleTemp
@@ -40,7 +42,6 @@ export type ParsedExcelCellValueType = ParsedExcelCellValueTypeTemp
 export type ParsedExcelDocType = ParsedExcelDocTypeTemp
 export type ParsedExcelRowType = ParsedExcelRowTypeTemp
 export type ParsedExcelWorksheetType = ParsedExcelWorksheetTypeTemp
-
 
 export {
 	base64ToBlob,
@@ -68,7 +69,8 @@ export {
 	PDFGenStack,
 	PDFGenTable,
 	PDFGenText,
-	PDFGenLine
+	PDFGenLine,
+	PDFGenTableCell
 } from './pdf/index';
 
 export {

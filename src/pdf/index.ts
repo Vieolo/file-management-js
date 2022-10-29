@@ -6,6 +6,8 @@ import PDFGen, {
   PDFGenTable,
   PDFGenText,
   PDFGenLine,
+  PDFGenTableCell,
+  PDFGenElement as PDFGenElementTemp,
   PDFGenColumnsCol as PDFGenColumnsColTemp,
   PDFGenDocumentHeaderAndFooter as PDFGenDocumentHeaderAndFooterTemp,
   PDFGenTableLayout as PDFGenTableLayoutTemp
@@ -17,8 +19,6 @@ export {
   convertImageToPDF
 } from './pdf_modification';
 
-
-
 export {
   PDFGen,
   PDFGenColumns,
@@ -27,9 +27,11 @@ export {
   PDFGenStack,
   PDFGenTable,
   PDFGenText,
-  PDFGenLine,
+  PDFGenLine,  
+  PDFGenTableCell
 };
 
 export type PDFGenColumnsCol = PDFGenColumnsColTemp;
 export type PDFGenDocumentHeaderAndFooter = PDFGenDocumentHeaderAndFooterTemp;
 export type PDFGenTableLayout = PDFGenTableLayoutTemp;
+export type PDFGenElement = PDFGenElementTemp;
