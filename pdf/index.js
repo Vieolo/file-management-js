@@ -1,3 +1,3 @@
-import PDFGen, { PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine } from './pdf_gen';
+import PDFGen, { PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine, PDFGenTableCell } from './pdf_gen';
 export { pdfMerge, pdfSplit, convertImageToPDF } from './pdf_modification';
-export { PDFGen, PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine, };
+export { PDFGen, PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine, PDFGenTableCell };

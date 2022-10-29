@@ -6,6 +6,7 @@ import PDFGen, {
   PDFGenTable,
   PDFGenText,
   PDFGenLine,
+  PDFGenTableCell,
   PDFGenElement as PDFGenElementTemp,
   PDFGenColumnsCol as PDFGenColumnsColTemp,
   PDFGenDocumentHeaderAndFooter as PDFGenDocumentHeaderAndFooterTemp,
@@ -27,6 +28,7 @@ export {
   PDFGenTable,
   PDFGenText,
   PDFGenLine,  
+  PDFGenTableCell
 };
 
 export type PDFGenColumnsCol = PDFGenColumnsColTemp;

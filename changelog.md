@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.13 (2022-10-30)
+- Added `PDFGenElement` type to the export
+- Added `PDFGenTableCell` class
+
 ## 0.2.12 (2022-10-21)
 - Added ability to read Excel files
 

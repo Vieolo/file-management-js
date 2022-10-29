@@ -69,7 +69,8 @@ export {
 	PDFGenStack,
 	PDFGenTable,
 	PDFGenText,
-	PDFGenLine
+	PDFGenLine,
+	PDFGenTableCell
 } from './pdf/index';
 
 export {
