@@ -4,7 +4,7 @@ interface IPDFGenElement {
     getObject: () => Content
 }
 
-type PDFGenElement = IPDFGenElement | string
+export type PDFGenElement = IPDFGenElement | string
 export type PDFGenDocumentHeaderAndFooter = (currentPage: number, pageCount: number, pageSize: ContextPageSize) => PDFGenElement | null | undefined;
 
 
