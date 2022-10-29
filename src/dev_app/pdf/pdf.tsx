@@ -29,7 +29,13 @@ export default function PDFPage(props: {}) {
               [new PDFGenTableCell({element: new PDFGenText("Something"), cellProperties: {rowSpan: 2}}), " "],
               [" ", " "],
               [new PDFGenTableCell({element: new PDFGenText({text: "Something else"})}), ""],
-            ]
+            ],
+            layout: {
+              fillColor: (i, n, c) => {
+                if (i === 0) return '#f2f2f2'
+                return null
+              }
+            }
           })
         ]
         await pdf.downloadPDF("ss")
