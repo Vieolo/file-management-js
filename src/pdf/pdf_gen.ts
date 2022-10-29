@@ -294,6 +294,10 @@ export default class PDFGen {
         pageMargins?: Margins,
         pageSize?: PageSize,
         watermark?: Watermark | string,
+        /** 
+         * If the `fonts` is omitted, the `Roboto` font from `CDN` is automatically used.
+         * The default font is `Roboto`. This value can be changed via `defaultStyle.font`
+         */
         fonts?: {
             [name: string]: {
                 normal?: string;
@@ -345,10 +349,10 @@ export default class PDFGen {
         let pdfmake = await import('pdfmake/build/pdfmake');
         let fonts = this.data.fonts || {
             Roboto: {
-                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
-                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
-                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
-                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
+                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Regular.ttf',
+                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Medium.ttf',
+                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Italic.ttf',
+                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-MediumItalic.ttf'
             },
         }
         return pdfmake.createPdf(this.makeDocument(), undefined, fonts);
