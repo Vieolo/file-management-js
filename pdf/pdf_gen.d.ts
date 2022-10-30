@@ -1,4 +1,4 @@
-import type { ContentBase, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark, TableCellProperties } from 'pdfmake/interfaces';
+import type { ContentBase, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark, TableCellProperties, PatternFill } from 'pdfmake/interfaces';
 interface IPDFGenElement {
     getObject: () => Content;
 }
@@ -52,22 +52,127 @@ export declare class PDFGenImage implements IPDFGenElement {
         cover?: ImageCover | undefined;
     };
 }
+declare type DynamicLayout<T> = (rowIndex: number, node: ContentTable) => T | null;
+export declare type VerticalDynamicLayout<T> = (columnIndex: number, node: ContentTable) => T | null;
+declare type DynamicCellLayout<T> = (rowIndex: number, node: ContentTable, columnIndex: number) => T | null;
+export declare type VerticalDynamicCellLayout<T> = (columnIndex: number, node: ContentTable, rowIndex: number) => T | null;
 export declare type PDFGenTableLayout = 'noBorders' | 'headerLineOnly' | 'lightHorizontalLines' | {
-    hLineWidth?: (i: number, node: ContentTable) => number;
-    vLineWidth?: (i: number, node: ContentTable) => number;
-    hLineColor?: (i: number, node: ContentTable) => string;
-    vLineColor?: (i: number, node: ContentTable) => string;
-    hLineStyle?: (i: number, node: ContentTable) => {
+    /**
+     * Width of horizontal lines in `pt` depending on the row number
+     * (0 = line above the first row).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `1`.
+     */
+    hLineWidth?: DynamicLayout<number>;
+    /**
+     * Width of vertical lines in `pt` depending on the column number
+     * (0 = line to the left of the left-most column).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `1`.
+     */
+    vLineWidth?: VerticalDynamicLayout<number>;
+    /**
+     * Color of horizontal lines, optionally depending on the row (0 = line above
+     * the top row) and column number (0 = left-most column).
+     *
+     * Can be overridden for each cell via {@link TableCellProperties.borderColor}.
+     *
+     * Defaults to `black`.
+     */
+    hLineColor?: DynamicCellLayout<string>;
+    /**
+     * Color of vertical lines, optionally depending on the column (0 = line left
+     * of the left-most column) and row number (0 = top row).
+     *
+     * Can be overridden for each cell via {@link TableCellProperties.borderColor}.
+     *
+     * Defaults to `black`.
+     */
+    vLineColor?: VerticalDynamicCellLayout<string>;
+    /**
+     * Style of horizontal lines depending on the row number
+     * (0 = line above the top row).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to a solid line.
+     */
+    hLineStyle?: DynamicLayout<{
         dash: Dash;
-    };
-    vLineStyle?: (i: number, node: ContentTable) => {
+    }>;
+    /**
+     * Style of vertical lines depending on the column number
+     * (0 = line to the left of the left-most column).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to a solid line.
+     */
+    vLineStyle?: VerticalDynamicLayout<{
         dash: Dash;
-    };
-    paddingLeft?: (i: number, node: ContentTable) => number;
-    paddingRight?: (i: number, node: ContentTable) => number;
-    paddingTop?: (i: number, node: ContentTable) => number;
-    paddingBottom?: (i: number, node: ContentTable) => number;
-    fillColor?: (rowIndex: number, node: ContentTable, columnIndex: number) => number | null;
+    }>;
+    /**
+     * Padding in `pt` to the left of each column
+     * (0 = left-most column).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `4`.
+     */
+    paddingLeft?: VerticalDynamicLayout<number>;
+    /**
+     * Padding in `pt` to the right of each column
+     * (0 = left-most column).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `4`.
+     */
+    paddingRight?: VerticalDynamicLayout<number>;
+    /**
+     * Padding in `pt` at the top of each cell of a row
+     * (0 = top row).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `2`.
+     */
+    paddingTop?: DynamicLayout<number>;
+    /**
+     * Padding in `pt` at the bottom of each cell of a row
+     * (0 = top row).
+     *
+     * **Note**: Does not allow an explicit value of `undefined`.
+     *
+     * Defaults to `2`.
+     */
+    paddingBottom?: DynamicLayout<number>;
+    /**
+     * Background color the table's cells are filled with.
+     *
+     * Supports well-known color names like `blue` or hexadecimal color strings like `#ccffcc`,
+     * as well as a reference to a pattern.
+     */
+    fillColor?: DynamicCellLayout<string | PatternFill>;
+    /**
+     * Opacity of the {@link fillColor}.
+     * Must be between 0 (fully transparent) and 1 (fully opaque).
+     *
+     * Defaults to `1`.
+     */
+    fillOpacity?: DynamicCellLayout<number>;
+    /**
+     * Controls whether the table has any borders by default.
+     *
+     * If set to `false`, borders can only be added to cells via their `border` property.
+     *
+     * Defaults to `true`.
+     */
+    defaultBorder?: boolean | undefined;
 };
 export declare class PDFGenTable implements IPDFGenElement {
     data: {
@@ -173,6 +278,10 @@ export default class PDFGen {
         pageMargins?: Margins;
         pageSize?: PageSize;
         watermark?: Watermark | string;
+        /**
+         * If the `fonts` is omitted, the `Roboto` font from `CDN` is automatically used.
+         * The default font is `Roboto`. This value can be changed via `defaultStyle.font`
+         */
         fonts?: {
             [name: string]: {
                 normal?: string;
@@ -199,6 +308,10 @@ export default class PDFGen {
         pageMargins?: Margins;
         pageSize?: PageSize;
         watermark?: Watermark | string;
+        /**
+         * If the `fonts` is omitted, the `Roboto` font from `CDN` is automatically used.
+         * The default font is `Roboto`. This value can be changed via `defaultStyle.font`
+         */
         fonts?: {
             [name: string]: {
                 normal?: string;

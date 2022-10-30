@@ -53,6 +53,7 @@ export class PDFGenTable {
             t.widths = this.data.widths;
         return {
             table: t,
+            layout: this.data.layout,
             ...(this.data.style || {})
         };
     }
@@ -151,10 +152,10 @@ export default class PDFGen {
         let pdfmake = await import('pdfmake/build/pdfmake');
         let fonts = this.data.fonts || {
             Roboto: {
-                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
-                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
-                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
-                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
+                normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Regular.ttf',
+                bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Medium.ttf',
+                italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-Italic.ttf',
+                bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/fonts/Roboto/Roboto-MediumItalic.ttf'
             },
         };
         return pdfmake.createPdf(this.makeDocument(), undefined, fonts);
