@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.14 (2022-10-30)
+- Fixed the layout of `PDFGenTable`
+
 ## 0.2.13 (2022-10-30)
 - Added `PDFGenElement` type to the export
 - Added `PDFGenTableCell` class
