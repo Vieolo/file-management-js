@@ -24,6 +24,10 @@ export declare type ParsedExcelCellType = {
     columnNumber: number;
     rowNumber: number;
     value: ParsedExcelCellValueType;
+    mergeCount?: {
+        row: number;
+        col: number;
+    };
 };
 /** Type containing all the parsed data of an excel row */
 export declare type ParsedExcelRowType = {
@@ -55,4 +59,6 @@ export declare type ParsedExcelDocType = {
  * This function reads and parse the contents of an excel file
  * @param file The Blob/File of the excel files
  */
-export declare function readExcelContent(file: Blob): Promise<ParsedExcelDocType>;
+export declare function readExcelContent(file: Blob, options?: {
+    skipEmptyCells?: boolean;
+}): Promise<ParsedExcelDocType>;
