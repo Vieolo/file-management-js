@@ -26,7 +26,7 @@ describe("Read Excel Files", () => {
             "workSheets": [{
                 "rows": [{
                     "rowNumber": 1,
-                    "cellCount": 1,
+                    "cellCount": 2,
                     "hasValues": true,
                     "cells": [{
                         "columnNumber": 1,
@@ -35,6 +35,14 @@ describe("Read Excel Files", () => {
                             "value": "Voorbeeldplanning AH:",
                             "type": "string",
                             "stringRepresentation": "Voorbeeldplanning AH:"
+                        }
+                    }, {
+                        "columnNumber": 4,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": " ",
+                            "type": "string",
+                            "stringRepresentation": " "
                         }
                     }]
                 }, {
@@ -6825,8 +6833,441 @@ describe("Read Excel Files", () => {
                 }],
                 "columnCount": 19,
                 "columnWithContentCount": 19,
-                "rowCount": 75,
+                "rowCount": 1000,
                 "rowWithContentCount": 52,
+                "name": "Blad1"
+            }]
+        }
+
+        expect(await readExcelContent(sample)).toEqual(expected)        
+        
+        let expectedWihtoutEmptySpace = {...expected}
+        expectedWihtoutEmptySpace.workSheets[0].rows[0].cells.splice(1, 1);
+        expect(await readExcelContent(sample, {skipEmptyCells: true})).toEqual(expectedWihtoutEmptySpace)        
+        // console.log(JSON.stringify(await readExcelContent(sample)))
+    });
+
+    it("Reads the Excel file 2 correctly", async () => {
+        let sample = (await readLocalFile("excel/sample_excel_2.xlsx", 'Excel'))[0]
+
+        let expected = {
+            "workSheets": [{
+                "rows": [{
+                    "rowNumber": 1,
+                    "cellCount": 19,
+                    "hasValues": true,
+                    "cells": [{
+                        "columnNumber": 1,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Route nr",
+                            "type": "string",
+                            "stringRepresentation": "Route nr"
+                        }
+                    }, {
+                        "columnNumber": 2,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Dock",
+                            "type": "string",
+                            "stringRepresentation": "Dock"
+                        }
+                    }, {
+                        "columnNumber": 3,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Aanvang laden",
+                            "type": "string",
+                            "stringRepresentation": "Aanvang laden"
+                        }
+                    }, {
+                        "columnNumber": 4,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Laadtijd",
+                            "type": "string",
+                            "stringRepresentation": "Laadtijd"
+                        }
+                    }, {
+                        "columnNumber": 5,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Vertrek DCO",
+                            "type": "string",
+                            "stringRepresentation": "Vertrek DCO"
+                        }
+                    }, {
+                        "columnNumber": 6,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Pauze ervoor",
+                            "type": "string",
+                            "stringRepresentation": "Pauze ervoor"
+                        }
+                    }, {
+                        "columnNumber": 7,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Aanlevertijd fil",
+                            "type": "string",
+                            "stringRepresentation": "Aanlevertijd fil"
+                        }
+                    }, {
+                        "columnNumber": 8,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Fil nr",
+                            "type": "string",
+                            "stringRepresentation": "Fil nr"
+                        }
+                    }, {
+                        "columnNumber": 9,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Plaats",
+                            "type": "string",
+                            "stringRepresentation": "Plaats"
+                        }
+                    }, {
+                        "columnNumber": 10,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Lostijd",
+                            "type": "string",
+                            "stringRepresentation": "Lostijd"
+                        }
+                    }, {
+                        "columnNumber": 11,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "pauze erna",
+                            "type": "string",
+                            "stringRepresentation": "pauze erna"
+                        }
+                    }, {
+                        "columnNumber": 12,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "RC",
+                            "type": "string",
+                            "stringRepresentation": "RC"
+                        }
+                    }, {
+                        "columnNumber": 13,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "K+N",
+                            "type": "string",
+                            "stringRepresentation": "K+N"
+                        }
+                    }, {
+                        "columnNumber": 14,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "DCO",
+                            "type": "string",
+                            "stringRepresentation": "DCO"
+                        }
+                    }, {
+                        "columnNumber": 15,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "KM",
+                            "type": "string",
+                            "stringRepresentation": "KM"
+                        }
+                    }, {
+                        "columnNumber": 16,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Uren",
+                            "type": "string",
+                            "stringRepresentation": "Uren"
+                        }
+                    }, {
+                        "columnNumber": 17,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "Soort opl",
+                            "type": "string",
+                            "stringRepresentation": "Soort opl"
+                        }
+                    }, {
+                        "columnNumber": 18,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "manifest",
+                            "type": "string",
+                            "stringRepresentation": "manifest"
+                        }
+                    }, {
+                        "columnNumber": 19,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": "diensturen",
+                            "type": "string",
+                            "stringRepresentation": "diensturen"
+                        }
+                    }]
+                }, {
+                    "rowNumber": 2,
+                    "cellCount": 19,
+                    "hasValues": true,
+                    "cells": [{
+                        "columnNumber": 1,
+                        "rowNumber": 2,
+                        "mergeCount": {
+                            "row": 2,
+                            "col": 19, 
+                        },
+                        "value": {
+                            "value": "MAANDAG 07-11-2022",
+                            "type": "string",
+                            "stringRepresentation": "MAANDAG 07-11-2022"
+                        }
+                    }]
+                }, {
+                    "rowNumber": 8,
+                    "cellCount": 13,
+                    "hasValues": true,
+                    "cells": [{
+                        "columnNumber": 4,
+                        "rowNumber": 8,
+                        "mergeCount": {
+                            "row": 1,
+                            "col": 13, 
+                        },
+                        "value": {
+                            "value": "Kan oplegger 805 aankoppelen bij AH DCO, na rit weer afkoppelen AH DCO",
+                            "type": "string",
+                            "stringRepresentation": "Kan oplegger 805 aankoppelen bij AH DCO, na rit weer afkoppelen AH DCO"
+                        }
+                    }]
+                }, {
+                    "rowNumber": 9,
+                    "cellCount": 15,
+                    "hasValues": true,
+                    "cells": [{
+                        "columnNumber": 1,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": 557,
+                            "type": "number",
+                            "stringRepresentation": "557"
+                        }
+                    }, {
+                        "columnNumber": 2,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": 105,
+                            "type": "number",
+                            "stringRepresentation": "105"
+                        }
+                    }, {
+                        "columnNumber": 3,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "13:27:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T13:27:00.000Z",
+                            "time": {
+                                "hour": 13,
+                                "minute": 27,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 4,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "00:29:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T00:29:00.000Z",
+                            "time": {
+                                "hour": 0,
+                                "minute": 29,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 5,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "14:05:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T14:05:00.000Z",
+                            "time": {
+                                "hour": 14,
+                                "minute": 5,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 7,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "15:41:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T15:41:00.000Z",
+                            "time": {
+                                "hour": 15,
+                                "minute": 41,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 8,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": 1122,
+                            "type": "number",
+                            "stringRepresentation": "1122"
+                        }
+                    }, {
+                        "columnNumber": 9,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "STADSKANAAL",
+                            "type": "string",
+                            "stringRepresentation": "STADSKANAAL"
+                        }
+                    }, {
+                        "columnNumber": 10,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "00:37:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T00:37:00.000Z",
+                            "time": {
+                                "hour": 0,
+                                "minute": 37,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 12,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": 18,
+                            "type": "number",
+                            "stringRepresentation": "18"
+                        }
+                    }, {
+                        "columnNumber": 13,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "19:30:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T19:30:00.000Z",
+                            "time": {
+                                "hour": 19,
+                                "minute": 30,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 14,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "20:03:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T20:03:00.000Z",
+                            "time": {
+                                "hour": 20,
+                                "minute": 3,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 15,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": 288,
+                            "type": "number",
+                            "stringRepresentation": "288"
+                        }
+                    }, {
+                        "columnNumber": 16,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "06:36:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T06:36:00.000Z",
+                            "time": {
+                                "hour": 6,
+                                "minute": 36,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 17,
+                        "rowNumber": 9,
+                        "value": {
+                            "value": "eur_5461-k",
+                            "type": "string",
+                            "stringRepresentation": "eur_5461-k"
+                        }
+                    }]
+                }, {
+                    "rowNumber": 10,
+                    "cellCount": 5,
+                    "hasValues": true,
+                    "cells": [{
+                        "columnNumber": 7,
+                        "rowNumber": 10,
+                        "value": {
+                            "value": "17:00:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T17:00:00.000Z",
+                            "time": {
+                                "hour": 17,
+                                "minute": 0,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 8,
+                        "rowNumber": 10,
+                        "value": {
+                            "value": 8701,
+                            "type": "number",
+                            "stringRepresentation": "8701"
+                        }
+                    }, {
+                        "columnNumber": 9,
+                        "rowNumber": 10,
+                        "value": {
+                            "value": "APPINGEDAM",
+                            "type": "string",
+                            "stringRepresentation": "APPINGEDAM"
+                        }
+                    }, {
+                        "columnNumber": 10,
+                        "rowNumber": 10,
+                        "value": {
+                            "value": "00:51:00",
+                            "type": "time",
+                            "stringRepresentation": "1899-12-30T00:51:00.000Z",
+                            "time": {
+                                "hour": 0,
+                                "minute": 51,
+                                "second": 0
+                            }
+                        }
+                    }, {
+                        "columnNumber": 12,
+                        "rowNumber": 10,
+                        "value": {
+                            "value": 38,
+                            "type": "number",
+                            "stringRepresentation": "38"
+                        }
+                    }]
+                }],
+                "columnCount": 19,
+                "columnWithContentCount": 19,
+                "rowCount": 10,
+                "rowWithContentCount": 6,
                 "name": "Blad1"
             }]
         }

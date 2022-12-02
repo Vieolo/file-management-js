@@ -21,15 +21,16 @@ export type ParsedExcelCellValueType = {
     date1904?: boolean,
     /** Used in the cases of formula and sharedFormula */
     formula?: string,
-    type: 
-        | "null" | "number" | "string" | "hyperlink" | "boolean" | "date" | "time" | "error" | "richText" | "formula" | "sharedFormula" | "unknown"
+    type:
+    | "null" | "number" | "string" | "hyperlink" | "boolean" | "date" | "time" | "error" | "richText" | "formula" | "sharedFormula" | "unknown"
 }
 
 /** Type containing all the parsed data of an excel cell */
 export type ParsedExcelCellType = {
     columnNumber: number,
     rowNumber: number,
-    value: ParsedExcelCellValueType
+    value: ParsedExcelCellValueType,
+    mergeCount?: { row: number, col: number }
 }
 
 /** Type containing all the parsed data of an excel row */
@@ -62,46 +63,46 @@ export type ParsedExcelDocType = {
 }
 
 
-function getCellActualValue(value: CellValue) : ParsedExcelCellValueType {
-    if (!value || !value.valueOf()) return {value: null, type: 'null', stringRepresentation: ""}
+function getCellActualValue(value: CellValue): ParsedExcelCellValueType {
+    if (!value || !value.valueOf()) return { value: null, type: 'null', stringRepresentation: "" }
 
     let str = value.toString()
-    
-    if (typeof value === 'string') return {value: value.valueOf() as string, type: 'string', stringRepresentation: str}
-    else if (typeof value === 'number') return {value: value.valueOf() as number, type: 'number', stringRepresentation: str}
-    else if (typeof value === 'boolean') return {value: value.valueOf() as boolean, type: 'boolean', stringRepresentation: str}
+
+    if (typeof value === 'string') return { value: value.valueOf() as string, type: 'string', stringRepresentation: str }
+    else if (typeof value === 'number') return { value: value.valueOf() as number, type: 'number', stringRepresentation: str }
+    else if (typeof value === 'boolean') return { value: value.valueOf() as boolean, type: 'boolean', stringRepresentation: str }
     // The value is an object
     else {
         // If the cell is a date
         if (value instanceof Date) {
             let s = value.toISOString().split("T")[1].split(".")[0];
-            let t = {hour: +s.split(":")[0], minute: +s.split(":")[1], second: +s.split(":")[2]}
-            
+            let t = { hour: +s.split(":")[0], minute: +s.split(":")[1], second: +s.split(":")[2] }
+
             // If the day of the date is `1899-12-30`, then the value is actually time rather than the whole date
             if (value.getUTCFullYear() === 1899 && value.getUTCMonth() === 11 && value.getUTCDate() === 30) {
                 return {
-                    value: s, 
-                    type: 'time', 
+                    value: s,
+                    type: 'time',
                     stringRepresentation: value.toISOString(),
                     time: t
-                }    
+                }
             }
-            return {value: (value as Date).toISOString(), type: 'date', stringRepresentation: value.toISOString(), date: value.toISOString().split("T")[0], time: t}
+            return { value: (value as Date).toISOString(), type: 'date', stringRepresentation: value.toISOString(), date: value.toISOString().split("T")[0], time: t }
         }
 
         // If the value is not of basic types and date, it is an object
         // The following lines check if the existence of unique keys in the object to get the details and type
 
         // The cell has an error, possible errors are: '#N/A' | '#REF!' | '#NAME?' | '#DIV/0!' | '#NULL!' | '#VALUE!' | '#NUM!'
-        else if ("error" in (value as Object)) return {value: (value.valueOf() as CellErrorValue).error, type: 'error', stringRepresentation: str}
-        else if ("richText" in (value as Object)) return {value: JSON.stringify((value.valueOf() as CellRichTextValue).richText), type: 'richText', stringRepresentation: str}
-        else if ("hyperlink" in (value as Object)) return {value: (value.valueOf() as CellHyperlinkValue).hyperlink, type: 'hyperlink', text: (value.valueOf() as CellHyperlinkValue).text, stringRepresentation: str}
-        else if ("sharedFormula" in (value as Object)) return {value: (value.valueOf() as CellSharedFormulaValue).sharedFormula, type: 'sharedFormula', result: JSON.stringify((value.valueOf() as CellSharedFormulaValue).result), date1904: (value as CellSharedFormulaValue).date1904 || false, formula: (value.valueOf() as CellSharedFormulaValue).formula, stringRepresentation: str}
-        else if ("formula" in (value as Object)) return {value: (value.valueOf() as CellFormulaValue).formula, type: 'formula', result: JSON.stringify((value.valueOf() as CellFormulaValue).result), date1904: (value as CellFormulaValue).date1904 || false, formula: (value.valueOf() as CellFormulaValue).formula, stringRepresentation: str}
+        else if ("error" in (value as Object)) return { value: (value.valueOf() as CellErrorValue).error, type: 'error', stringRepresentation: str }
+        else if ("richText" in (value as Object)) return { value: JSON.stringify((value.valueOf() as CellRichTextValue).richText), type: 'richText', stringRepresentation: str }
+        else if ("hyperlink" in (value as Object)) return { value: (value.valueOf() as CellHyperlinkValue).hyperlink, type: 'hyperlink', text: (value.valueOf() as CellHyperlinkValue).text, stringRepresentation: str }
+        else if ("sharedFormula" in (value as Object)) return { value: (value.valueOf() as CellSharedFormulaValue).sharedFormula, type: 'sharedFormula', result: JSON.stringify((value.valueOf() as CellSharedFormulaValue).result), date1904: (value as CellSharedFormulaValue).date1904 || false, formula: (value.valueOf() as CellSharedFormulaValue).formula, stringRepresentation: str }
+        else if ("formula" in (value as Object)) return { value: (value.valueOf() as CellFormulaValue).formula, type: 'formula', result: JSON.stringify((value.valueOf() as CellFormulaValue).result), date1904: (value as CellFormulaValue).date1904 || false, formula: (value.valueOf() as CellFormulaValue).formula, stringRepresentation: str }
     }
 
     // If the type of the cell is could not be determined, a json representation of the value is returned
-    return {value: JSON.stringify(value.valueOf()), type: 'unknown', stringRepresentation: str}
+    return { value: JSON.stringify(value.valueOf()), type: 'unknown', stringRepresentation: str }
 }
 
 
@@ -109,8 +110,8 @@ function getCellActualValue(value: CellValue) : ParsedExcelCellValueType {
  * This function reads and parse the contents of an excel file
  * @param file The Blob/File of the excel files 
  */
-export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType> {
-    let result: ParsedExcelDocType = {workSheets: []}
+export async function readExcelContent(file: Blob, options?: { skipEmptyCells?: boolean }): Promise<ParsedExcelDocType> {
+    let result: ParsedExcelDocType = { workSheets: [] }
 
     // Importing the `exceljs` package and necessary functions
     const Excel = await import('exceljs');
@@ -124,7 +125,7 @@ export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType>
     for (let i = 0; i < workbook.worksheets.length; i++) {
         const rws = workbook.worksheets[i]; // Raw Work Sheet
         rws.unMergeCells()
-        
+
         // The initial worksheet object
         let ws: ParsedExcelWorksheetType = {
             rows: [],
@@ -132,36 +133,64 @@ export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType>
             columnWithContentCount: rws.actualColumnCount,
             rowCount: rws.rowCount,
             rowWithContentCount: rws.actualRowCount,
-            name: rws.name,            
-        }   
+            name: rws.name,
+        }
 
         // Looping through the rows of the worksheet
         rws.eachRow((row, rowNumber) => {
             let r: ParsedExcelRowType = {
-                rowNumber: rowNumber, 
+                rowNumber: rowNumber,
                 cellCount: row.actualCellCount,
                 hasValues: row.hasValues,
                 cells: []
             }
-            
+
             // Looping through the cells of the row
             row.eachCell((cell, collNumber) => {
+
+                // If a cell is merged with others, the value of the merged cells will be recorded only as the left most and top most cells which is the master cell
+                // Each cell has a master. If the master is not the same as the current cell, it is part of the merge collection
+                // The current cell (which is not the master) will be used to calculate the extent of merge)
+                if (cell.isMerged && cell.master && (+cell.master.row !== rowNumber || +cell.master.col !== collNumber)) {
+
+                    // To calculate the extent of the merge of the master cell, first we have to find it
+                    // If the row number of the master is the same as the current row, we look into the cells of the current row
+                    // If the row number of the master is different, first we have to find the row which contains the master cell first
+                    let masterCell;
+                    if (+cell.master.row === rowNumber) {
+                        masterCell = r.cells.find(z => z.columnNumber === +cell.master.col && z.rowNumber === +cell.master.row)
+                    } else {
+                        let masterRow = ws.rows.find(z => z.rowNumber === +cell.master.row)
+                        if (!masterRow) return
+                        masterCell = masterRow.cells.find(z => z.columnNumber === +cell.master.col && z.rowNumber === +cell.master.row)
+                    }
+                    if (!masterCell) return
+                    
+                    // Since the current cell is the most right and most bottom cell of the merge, the range of the merge is set to the coordinate of the current cell
+                    masterCell.mergeCount = { col: +cell.col - +cell.master.col + 1, row: +cell.row - +cell.master.row + 1 }
+                    return
+                }
+
                 let c: ParsedExcelCellType = {
                     columnNumber: collNumber,
                     rowNumber: rowNumber,
                     value: getCellActualValue(cell.value)
                 }
 
+                if (c.value.type === 'string' && c.value.stringRepresentation.trim() === "" && options && options.skipEmptyCells) return
+
                 // Adding the cell to the parsed cells
                 r.cells.push(c)
             })
 
 
-            // Adding the row to the parsed worksheet
-            ws.rows.push(r)
+            if (r.cells.length > 0) {
+                // Adding the row to the parsed worksheet
+                ws.rows.push(r)
+            }
         })
-        
-        
+
+
         // Adding the parsed worksheet to the result
         result.workSheets.push(ws)
     }
