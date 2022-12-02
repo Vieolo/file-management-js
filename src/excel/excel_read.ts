@@ -109,7 +109,7 @@ function getCellActualValue(value: CellValue) : ParsedExcelCellValueType {
  * This function reads and parse the contents of an excel file
  * @param file The Blob/File of the excel files 
  */
-export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType> {
+export async function readExcelContent(file: Blob, options?: {skipEmptyCells?: boolean}) : Promise<ParsedExcelDocType> {
     let result: ParsedExcelDocType = {workSheets: []}
 
     // Importing the `exceljs` package and necessary functions
@@ -151,6 +151,8 @@ export async function readExcelContent(file: Blob) : Promise<ParsedExcelDocType>
                     rowNumber: rowNumber,
                     value: getCellActualValue(cell.value)
                 }
+
+                if (c.value.type === 'string' && c.value.stringRepresentation.trim() === "" && options && options.skipEmptyCells) return
 
                 // Adding the cell to the parsed cells
                 r.cells.push(c)

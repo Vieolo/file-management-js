@@ -26,7 +26,7 @@ describe("Read Excel Files", () => {
             "workSheets": [{
                 "rows": [{
                     "rowNumber": 1,
-                    "cellCount": 1,
+                    "cellCount": 2,
                     "hasValues": true,
                     "cells": [{
                         "columnNumber": 1,
@@ -35,6 +35,14 @@ describe("Read Excel Files", () => {
                             "value": "Voorbeeldplanning AH:",
                             "type": "string",
                             "stringRepresentation": "Voorbeeldplanning AH:"
+                        }
+                    }, {
+                        "columnNumber": 4,
+                        "rowNumber": 1,
+                        "value": {
+                            "value": " ",
+                            "type": "string",
+                            "stringRepresentation": " "
                         }
                     }]
                 }, {
@@ -6825,13 +6833,17 @@ describe("Read Excel Files", () => {
                 }],
                 "columnCount": 19,
                 "columnWithContentCount": 19,
-                "rowCount": 75,
+                "rowCount": 1000,
                 "rowWithContentCount": 52,
                 "name": "Blad1"
             }]
         }
 
         expect(await readExcelContent(sample)).toEqual(expected)        
+        
+        let expectedWihtoutEmptySpace = {...expected}
+        expectedWihtoutEmptySpace.workSheets[0].rows[0].cells.splice(1, 1);
+        expect(await readExcelContent(sample, {skipEmptyCells: true})).toEqual(expectedWihtoutEmptySpace)        
         // console.log(JSON.stringify(await readExcelContent(sample)))
     });
 
