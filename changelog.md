@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0 (2022-12-02)
+- Added the option to skip the cells with empty strings in Excel
+
+#### Breaking Changes
+- While reading Excel files, the merged cells are now only reflected in the first cell (most top and most left) instead of an array with identical cells
+
 ## 0.2.14 (2022-10-30)
 - Fixed the layout of `PDFGenTable`
 

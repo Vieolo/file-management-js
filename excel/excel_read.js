@@ -46,7 +46,7 @@ function getCellActualValue(value) {
  * This function reads and parse the contents of an excel file
  * @param file The Blob/File of the excel files
  */
-export async function readExcelContent(file) {
+export async function readExcelContent(file, options) {
     let result = { workSheets: [] };
     // Importing the `exceljs` package and necessary functions
     const Excel = await import('exceljs');
@@ -77,16 +77,43 @@ export async function readExcelContent(file) {
             };
             // Looping through the cells of the row
             row.eachCell((cell, collNumber) => {
+                // If a cell is merged with others, the value of the merged cells will be recorded only as the left most and top most cells which is the master cell
+                // Each cell has a master. If the master is not the same as the current cell, it is part of the merge collection
+                // The current cell (which is not the master) will be used to calculate the extent of merge)
+                if (cell.isMerged && cell.master && (+cell.master.row !== rowNumber || +cell.master.col !== collNumber)) {
+                    // To calculate the extent of the merge of the master cell, first we have to find it
+                    // If the row number of the master is the same as the current row, we look into the cells of the current row
+                    // If the row number of the master is different, first we have to find the row which contains the master cell first
+                    let masterCell;
+                    if (+cell.master.row === rowNumber) {
+                        masterCell = r.cells.find(z => z.columnNumber === +cell.master.col && z.rowNumber === +cell.master.row);
+                    }
+                    else {
+                        let masterRow = ws.rows.find(z => z.rowNumber === +cell.master.row);
+                        if (!masterRow)
+                            return;
+                        masterCell = masterRow.cells.find(z => z.columnNumber === +cell.master.col && z.rowNumber === +cell.master.row);
+                    }
+                    if (!masterCell)
+                        return;
+                    // Since the current cell is the most right and most bottom cell of the merge, the range of the merge is set to the coordinate of the current cell
+                    masterCell.mergeCount = { col: +cell.col - +cell.master.col + 1, row: +cell.row - +cell.master.row + 1 };
+                    return;
+                }
                 let c = {
                     columnNumber: collNumber,
                     rowNumber: rowNumber,
                     value: getCellActualValue(cell.value)
                 };
+                if (c.value.type === 'string' && c.value.stringRepresentation.trim() === "" && options && options.skipEmptyCells)
+                    return;
                 // Adding the cell to the parsed cells
                 r.cells.push(c);
             });
-            // Adding the row to the parsed worksheet
-            ws.rows.push(r);
+            if (r.cells.length > 0) {
+                // Adding the row to the parsed worksheet
+                ws.rows.push(r);
+            }
         });
         // Adding the parsed worksheet to the result
         result.workSheets.push(ws);
