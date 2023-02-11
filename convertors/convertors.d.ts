@@ -19,3 +19,10 @@ export declare function base64ToBlob(file: string, contentType?: string): Promis
  * @param file The JS file/blob object
  */
 export declare function fileToArrayBuffer(file: Blob): Promise<ArrayBuffer>;
+/**
+ * Reads the string contents of the uploaded file/blob
+ *
+ * Useful for reading the contents of a text or json file
+ * @param file The JS file/blob object
+ */
+export declare function fileToText(file: Blob): Promise<string>;
