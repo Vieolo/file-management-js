@@ -19,7 +19,7 @@ export declare type ParsedExcelCellValueType = ParsedExcelCellValueTypeTemp;
 export declare type ParsedExcelDocType = ParsedExcelDocTypeTemp;
 export declare type ParsedExcelRowType = ParsedExcelRowTypeTemp;
 export declare type ParsedExcelWorksheetType = ParsedExcelWorksheetTypeTemp;
-export { base64ToBlob, fileToArrayBuffer, fileToBase64, remoteFileToBase64 } from './convertors/index';
+export { base64ToBlob, fileToArrayBuffer, fileToBase64, remoteFileToBase64, fileToText } from './convertors/index';
 export { downloadBlob } from './download/index';
 export { generateBlob } from './generators/index';
 export { pdfMerge, pdfSplit, convertImageToPDF, PDFGen, PDFGenColumns, PDFGenEmptySpace, PDFGenImage, PDFGenStack, PDFGenTable, PDFGenText, PDFGenLine, PDFGenTableCell } from './pdf/index';

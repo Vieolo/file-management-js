@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.3.1 (2023-02-11)
+- Added `fileToText` function
+
 ## 0.3.0 (2022-12-02)
 - Added the option to skip the cells with empty strings in Excel
 
