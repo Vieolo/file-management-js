@@ -10,7 +10,7 @@
 		const reader = new FileReader();
 
 		reader.onload = () => resolve(reader.result as string);
-		reader.onerror = () => reject;
+		reader.onerror = () => reject();
 		reader.readAsDataURL(blob)
 	})
 }
@@ -26,7 +26,7 @@ export async function fileToBase64(file: File): Promise<string> {
 		const reader = new FileReader();
 
 		reader.onload = () => resolve(reader.result as string);
-		reader.onerror = () => reject;
+		reader.onerror = () => reject();
 		reader.readAsDataURL(file)
 	})
 }
@@ -55,8 +55,26 @@ export async function fileToArrayBuffer(file: Blob): Promise<ArrayBuffer> {
 		const reader = new FileReader();
 
 		reader.onload = () => resolve(reader.result as ArrayBuffer);
-		reader.onerror = () => reject;
+		reader.onerror = () => reject();
 		reader.readAsArrayBuffer(file)
+	})
+}
+
+
+/**
+ * Reads the string contents of the uploaded file/blob
+ * 
+ * Useful for reading the contents of a text or json file
+ * @param file The JS file/blob object
+ */
+export async function fileToText(file: Blob): Promise<string> {
+	
+	return new Promise<string>((resolve, reject) => {
+		const reader = new FileReader();
+
+		reader.onload = () => resolve(reader.result as string);
+		reader.onerror = () => reject();
+		reader.readAsText(file)
 	})
 }
 
