@@ -1,21 +1,14 @@
 # File Management
-The package offering different utility functions to manage files
+Offering different utility functions to manage files
 
 ## Install
-to install, add the following to the `dependency` key of the `package.json` file of the project.
 
-```json
-"@vieolo/file-management": "github:Vieolo/file-management-js.git#0.3.1"
+```bash
+npm install @vieolo/file-management
 ```
 
 ## Usage
-In the target package, the functions can be imported as followed
-```JS
-import {  } from '@vieolo/file-management';
-```
-
-## Importing individual functions
-The import paths are set to be relative within library to decrease bundle size. The functions can be imports as follows by traversing through child libray
+The import paths are set to be relative within library to decrease bundle size. The functions can be imports as follows by traversing through sub directories
 ```JS
 import {
 	downloadBlob
@@ -38,10 +31,3 @@ import {
 	generateBlob
 } from '@vieolo/file-management/generators';
 ```
-
-
-## Version Bump
-While bumping the version, the following files should be modified:
-- package.json
-- changelog.md (The user-facing change log for the user)
-- README.md (The version of the installation key-value pair)

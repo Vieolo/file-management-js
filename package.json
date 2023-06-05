@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "",
   "main": "export.js",
   "private": true,
@@ -50,7 +50,7 @@
     "url": "git+https://github.com/Vieolo/file-management-js.git"
   },
   "author": "Vieolo",
-  "license": "UNLICENSED",
+  "license": "MIT-0",
   "bugs": {
     "url": "https://github.com/Vieolo/file-management-js/issues"
   },

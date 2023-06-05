@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.4.0 (2023-06-05)
+- Changed the License to MIT-0
+
 ## 0.3.1 (2023-02-11)
 - Added `fileToText` function
 
