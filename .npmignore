@@ -3,10 +3,11 @@ src/
 public/
 test/
 .vscode/
+.nyc_output/
 coverage/
 .babelrc
 cypress.config.ts
 jest.config.js
 setupTest.js
 version_bump.mjs
-tsconfig.json
+mergeCoverage.mjs
