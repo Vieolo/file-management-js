@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/file-management",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Offering different utility functions to manage files",
   "main": "export.js",
   "scripts": {
@@ -99,5 +99,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }  
+  }
 }
