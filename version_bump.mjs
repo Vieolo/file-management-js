@@ -62,7 +62,7 @@ let changeLogLines = changelog.split('\n').slice(1);
 changeLogLines.unshift(...[
     "# Change Log",
     "",
-    `## ${fv} (${today()})`,
+    `## v${fv} (${today()})`,
     "- TODO: add the changes",
     "",
     "#### Deprecation",
