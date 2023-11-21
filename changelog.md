@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.4.2 (2023-11-21)
+- Added single margin properties e.g. `marginTop` to `PDFGen` elements
+- Added `monthGantt` component for `PDFGen`
+
 ## v0.4.1 (2023-06-06)
 - Updated dependencies
 
