@@ -1,4 +1,11 @@
-import type { ContentBase, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, Table, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark, TableCellProperties, PatternFill } from 'pdfmake/interfaces';
+import type { ContentBase as CB, Content, ContextPageSize, ImageCover, ContentTable, Dash, Size, DynamicRowSize, Style, Table, ContentColumns, ContentStack, ContentCanvas, TDocumentDefinitions, TDocumentInformation, StyleDictionary, DynamicBackground, Margins, PageSize, Watermark, TableCellProperties, PatternFill } from 'pdfmake/interfaces';
+
+interface ContentBase extends CB {
+    marginTop?: number,
+    marginBottom?: number,
+    marginRight?: number,
+    marginLeft?: number,
+}
 
 interface IPDFGenElement {
     getObject: () => Content
