@@ -1,5 +1,8 @@
 # Change Log
 
+## v0.4.3 (2024-02-11)
+- Fixed the error of "Excel.Workbook is not a constructor" for `ExcelGen`
+
 ## v0.4.2 (2023-11-21)
 - Added single margin properties e.g. `marginTop` to `PDFGen` elements
 - Added `monthGantt` component for `PDFGen`

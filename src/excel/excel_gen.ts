@@ -79,7 +79,7 @@ export default class ExcelGen {
         const Excel = await import('exceljs');
 
         // Creating the workbook (excel file)
-        let workbook = new Excel.Workbook();
+        let workbook = new Excel.default.Workbook();
 
         workbook.creator = this.data.creator;
         workbook.created = this.data.createdAt;
